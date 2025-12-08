@@ -1,0 +1,28 @@
+.header {
+    text-align: center;
+    position: sticky;
+}
+.header h1 {
+    font-size: 25px;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: inline-block;
+}
+.nav-item {
+    padding: 30px;
+    display: inline-flex;
+}
+.slogan {
+    text-align: center;
+    font-size: 80px;
+}
+.scroll-list {
+    display: flex;
+}
+.scroll-list img {
+    width: 384px;
+    height: 450px;
+}
