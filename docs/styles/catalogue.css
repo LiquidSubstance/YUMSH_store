@@ -1,0 +1,80 @@
+body {
+    background-color: black;
+}
+.header {
+    font-family: IBM Plex Serif;
+    text-align: center;
+    position: sticky;
+}
+.logo {
+    filter: invert(100%);
+}
+.header h1 {
+    font-size: 25px;
+    color: white;
+}
+.nav-item {
+    padding: 30px;
+    display: inline-flex;
+}
+a {
+    font-family: IBM Plex Serif;
+}
+.header ul {
+    padding-left: 0;
+}
+.header li {
+    align-items: center;
+}
+button {
+    font-family: "IBM Plex Serif", serif;
+    font-size: 14px;
+    height: 50px;
+    width: 200px;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    transition: background-color ease 1s;
+}
+button:hover {
+    background-color: rgba(184,184,184,0.85);
+}
+.catalogue-item {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 300px;
+    display: inline-block;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.catalogue-item img {
+
+}
+.catalogue {
+    text-align: center;
+    background-color: white;
+}
+.function-bar {
+    text-align: right;
+    margin-right: 10%;
+}
+.function-bar p {
+    color: white;
+    display: inline-block;
+}
+.function-bar select {
+    display: inline-block;
+    color: white;
+    background-color: black;
+    border: none;
+    transition: border ease 1s;
+}
+.function-bar select:hover {
+    border: 1px solid rgba(124,169,184,0.85);
+    border-radius: 10px;
+}
