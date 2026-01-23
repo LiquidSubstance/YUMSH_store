@@ -23,35 +23,64 @@
     <hr>
 </header>
 <main>
-    <div class="function-bar">
-        <p>Сортировать по</p>
-        <select class = "sort-form" >
-            <option value="price-desc">Сначала дорогие</option>
-            <option value="price-asc">Сначала дешевые</option>
-            <option value="date-desc">Сначала новые</option>
-            <option value="date-asc">Сначала старые</option>
-            <option value="type">По типу</option>
-        </select>
+    <div class="function-bar-wrapper">
+        <div class = "filter">
+            <p> Отфильтровать по </p>
+            <div class="filter-item">
+                <p>Типу:</p>
+                <ul>
+                    <li>
+                        <input type = "checkbox" id = "by-type-cup">
+                        <label for = "by-type-cup"> Кружка </label>
+                    </li>
+                    <li>
+                        <input type = "checkbox" id = "by-type-shirt">
+                        <label for = "by-type-shirt"> Футболка </label>
+                    </li>
+                    <li>
+                        <input type = "checkbox" id = "by-type-cap">
+                        <label for = "by-type-cap"> Кепка </label>
+                    </li>
+                </ul>
+                <hr>
+                <p>Цене:</p>
+                <label for = "by-price-up"> Не более </label>
+                <input type = "text" id = "by-price-up" class = "by-price">
+                <label for = "by-price-down"> Не менее </label>
+                <input type = "text" id = "by-price-down" class = "by-price">
+            </div>
+
+        </div>
+        <div class="function-bar">
+            <p>Сортировать по</p>
+            <select class = "sort-form" >
+                <option value="price-desc">Сначала дорогие</option>
+                <option value="price-asc">Сначала дешевые</option>
+                <option value="date-desc">Сначала новые</option>
+                <option value="date-asc">Сначала старые</option>
+                <option value="type">По типу</option>
+            </select>
+        </div>
     </div>
     <hr>
     <div class="catalogue">
         <div class="catalogue-item" data-name = "Кружка 2025 2й дизайн" data-price = "1000" data-type = "Кружка" data-date = 2025>
-            <img src="/contents/renderv7.png" alt="main page" width="192" height="225">
+            <img src="/contents/renderv7.png" width="192" height="225">
             <h2> Кружка 2025 2й дизайн </h2>
             <p> 1000₽ </p>
         </div>
         <div class="catalogue-item" data-name = "Кружка 2024 1й дизайн" data-price = "1500" data-type = "Кружка" data-date = 2024>
-            <img src="/contents/renderv5.png" alt="main page" width="192" height="225">
+            <img src="/contents/renderv5.png" width="192" height="225">
             <h2> Кружка 2024 1й дизайн </h2>
             <p> 1500₽ </p>
         </div>
         <div class="catalogue-item" data-name = "Зачетная Кружка 2025" data-price = "2000" data-type = "Кружка" data-date = 2025>
-            <img src="/contents/renderv6.png" alt="main page" width="192" height="225">
+            <img src="/contents/renderv6.png" width="192" height="225">
             <h2> Зачетная Кружка 2025 </h2>
             <p> 2000₽ </p>
         </div>
         <div class="catalogue-item" data-name = "Кружка 2024 2й дизайн" data-price = "1750" data-type = "Кружка" data-date = 2024>
-            <img src="/contents/renderv8.png" alt="main page" width="192" height="225">
+            <img src="/contents/renderv8.png" width="192" height="225">
             <h2> Кружка 2024 2й дизайн </h2>
             <p> 1750₽ </p>
         </div>
@@ -60,11 +89,54 @@
             <h2> Что-то </h2>
             <p> 500₽ </p>
         </div>
+        <div class="catalogue-item" data-name = "Футболка 2024" data-price = "3000" data-type = "Футболка" data-date = 2024>
+            <img src="/contents/shirt.png" width="192" height="225">
+            <h2> Футболка 2024 </h2>
+            <p> 3000₽ </p>
+        </div>
+        <div class="catalogue-item" data-name = "Кепка 2024" data-price = "1500" data-type = "Кепка" data-date = 2024>
+            <img src="/contents/capv3.png" width="192" height="225">
+            <h2> Кепка 2024 </h2>
+            <p> 1500₽ </p>
+        </div>
+    </div>
+    <hr>
+    <div class = "add-item-wrapper">
+        <div class = "add-item">
+            <p class = "add-item-header"> Загрузить новый товар </p>
+            <p>
+                Загрузите изображение
+                <input type = "file" accept="image/*" id = "file-upload-image">
+            </p>
+            <p>
+                Введите название товара
+                <input type = "text" aria-label="Введите название товара" id = "file-upload-name">
+            </p>
+            <p>
+                Укажите цену
+                <input type = "text" aria-label="Укажите цену" id = "file-upload-price">
+            </p>
+            <p>
+                Установите дату
+                <input type = "text" aria-label="Укажите цену" id = "file-upload-date">
+            </p>
+            <p>
+                Укажите тип
+                <input type = "text" aria-label="Укажите цену" id = "file-upload-type">
+            </p>
+            <button id = "add-item-button" onclick="upload_item()"> Загрузить </button>
+        </div>
+        <div class="preview-item" id = "preview" data-name = "" data-price = "" data-type = "" data-date = >
+            <img id = "preview-image">
+            <h2 id = "preview-name"></h2>
+            <p id = "preview-price"></p>
+        </div>
     </div>
     <script src="/scripts/sort.js"></script>
+    <script src="/scripts/upload.js"></script>
+    <script src="/scripts/filter.js"></script>
 </main>
 </body>
 </html>
 </body>
-
 </html>
