@@ -2,7 +2,7 @@
     font-family: "IBM Plex Serif", serif;
 }
 .header {
-    background:linear-gradient(90deg, rgba(255,255,255, 0.2), rgba(255,255,255,0)), url("/contents/renderallv2.png");
+    background:linear-gradient(90deg, rgba(255,255,255, 0.2), rgba(255,255,255,0)), url("../contents/renderallv2.png");
     text-align: center;
 }
 .logo {
@@ -55,4 +55,5 @@ button:hover {
 .about-us-item {
     width: 33%;
     display: inline-block;
+
 }
