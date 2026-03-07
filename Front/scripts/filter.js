@@ -1,16 +1,17 @@
-const filter_menu_not_price = document.querySelector(".not-price");
-const filter_menu_price = document.querySelector(".price");
-const wrapper = document.querySelector(".catalogue");
-// const raw_items = Array.from(wrapper.querySelectorAll(".catalogue-item"));
-const items = Array.from(wrapper.querySelectorAll(".catalogue-item"));
-// class CatalogueItem {
-//     constructor(name, price, type, date) {
-//         this.name = name;
-//         this.price = price;
-//         this.type = type;
-//         this.date = date;
-//     }
-// }
+const filter_menu_not_price = document.querySelectorAll(".not-price");
+const filter_menu_price = document.querySelectorAll(".price");
+wrapper = document.querySelector(".catalogue");
+const raw_items = Array.from(wrapper.querySelectorAll(".catalogue-item"));
+let max_size = raw_items.length;
+// const items = Array.from(wrapper.querySelectorAll(".catalogue-item"));
+class CatalogueItem {
+    constructor(name, price, type, date) {
+        this.name = name;
+        this.price = price;
+        this.type = type;
+        this.date = date;
+    }
+}
 class Filter {
     constructor(type, content, property, compareby) {
         this.type = type;
@@ -22,11 +23,11 @@ class Filter {
         let fitting = new Set();
         items.forEach(item => {
             let prop = this.property;
-            if (this.compareby === "equal" && item.dataset[prop] === this.content) {
+            if (this.compareby === "equal" && item[prop] === this.content) {
                 fitting.add(item);
-            } else if (this.compareby === "greater" && Number(item.dataset[prop]) > Number(this.content)){
+            } else if (this.compareby === "greater" && Number(item[prop]) > Number(this.content)){
                 fitting.add(item);
-            } else if (this.compareby === "lesser" && Number(item.dataset[prop]) < Number(this.content)){
+            } else if (this.compareby === "lesser" && Number(item[prop]) < Number(this.content)){
                 fitting.add(item);
             }
         });
@@ -34,37 +35,37 @@ class Filter {
     };
 }
 
-function uniteFilters(filters, items, wrapper) {
+function uniteFilters(filters, items, wrapper, raw_items, max_size) {
     let all_items = new Set(items);
     filters.forEach(filter => {
-        let fitting = filter.applyFilter(all_items, wrapper);
+        let fitting = filter.applyFilter(items, wrapper);
+        console.log(fitting);
         if (filter.type === "intersect") {
-            all_items = new Set([...all_items].filter(x => fitting.has(x)));
-        } else {
-            all_items = new Set([...all_items, ...fitting]);
+            all_items = new Set([...items].filter(x => fitting.has(x)));
+        } else if (filter.type === "union") {
+            console.log(max_size, all_items.size);
+            if (all_items.size === max_size) {
+                all_items = new Set([...items].filter(x => fitting.has(x)));
+            } else {
+                all_items = new Set([...all_items, ...fitting]);
+            }
         }
     })
-    all_items.forEach(item => {
-        wrapper.appendChild(item);
+    let i = 0;
+    wrapper.innerHTML = "";
+    raw_items.forEach(item => {
+        if (all_items.has(items[i])) {
+            wrapper.appendChild(item);
+        }
+        i++;
     })
 }
-let raw_filters = [];
-filter_menu_not_price.forEach(item => {
-    if (item.className === "form") {
-        console.log(52)
-        raw_filters.push(item);
-    }
+let raw_filters = Array.from(document.querySelectorAll(".filter-item"));
+let items = []
+raw_items.forEach(item => {
+    let new_item = new CatalogueItem(item.dataset.name, item.dataset.price, item.dataset.type, item.dataset.date);
+    items.push(new_item);
 })
-filter_menu_price.forEach(item => {
-    if (item.className === "form") {
-        raw_filters.push(item);
-    }
-})
-// let items = []
-// raw_items.forEach(item => {
-//     let new_item = new CatalogueItem(item.dataset.name, item.dataset.price, item.dataset.type, item.dataset.date);
-//     items.push(new_item);
-// })
 let filters = []
 raw_filters.forEach(item => {
     if (item.dataset.type === "price") {
@@ -75,13 +76,22 @@ raw_filters.forEach(item => {
 })
 let i = 0;
 let all_filters = new Set();
-filters.forEach(current_filter => {
-    current_filter.addEventListener("change", () => {
-        if (raw_filters[i].checked) {
-            all_filters.add(current_filter);
-            uniteFilters(all_filters, items, wrapper);
-        } else  {
-            all_filters.delete(current_filter);
-        }
-    });
-})
+window.addEventListener("load", () =>
+    raw_filters.forEach(current_filter => {
+        let current_filter_document = filters[i];
+        current_filter.addEventListener("change", () => {
+            if (current_filter.checked) {
+                all_filters.add(current_filter_document);
+                console.log(current_filter_document, "added");
+                uniteFilters(all_filters, items, wrapper, raw_items, max_size);
+            } else  if (!current_filter.checked) {
+                all_filters.delete(current_filter_document);
+                console.log(current_filter_document, "deleted");
+                uniteFilters(all_filters, items, wrapper, raw_items, max_size);
+            }
+            console.log(all_filters);
+        });
+        i++;
+        i %= filters.length;
+    })
+)
