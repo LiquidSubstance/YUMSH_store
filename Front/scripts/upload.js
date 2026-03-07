@@ -16,7 +16,7 @@ form_price.addEventListener("change", () => {
     preview_price.textContent = form_price.value + "₽";
 })
 function upload_item(){
-    const wrapper = document.querySelector(".catalogue");
+    wrapper = document.querySelector(".catalogue");
     const form_date = document.getElementById("file-upload-date")
     const form_price = document.getElementById("file-upload-price");
     const form_name = document.getElementById("file-upload-name");
@@ -30,4 +30,5 @@ function upload_item(){
     new_item.dataset.date = form_date.value;
     new_item.dataset.type = form_type.value;
     wrapper.append(new_item);
+
 }
