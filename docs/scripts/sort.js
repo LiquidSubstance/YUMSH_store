@@ -1,5 +1,5 @@
 const select = document.querySelector(".sort-form");
-const wrapper = document.querySelector(".catalogue");
+let wrapper = document.querySelector(".catalogue");
 select.addEventListener("change", () => {
     const items = Array.from(wrapper.querySelectorAll(".catalogue-item"));
     const option = select.value;
@@ -20,4 +20,5 @@ select.addEventListener("change", () => {
     items.forEach(item => {
         wrapper.appendChild(item);
     })
+
 });
