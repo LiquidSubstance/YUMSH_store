@@ -30,5 +30,4 @@ function upload_item(){
     new_item.dataset.date = form_date.value;
     new_item.dataset.type = form_type.value;
     wrapper.append(new_item);
-
 }

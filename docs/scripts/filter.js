@@ -41,7 +41,7 @@ function uniteFilters(filters, items, wrapper, raw_items, max_size) {
         let fitting = filter.applyFilter(items, wrapper);
         console.log(fitting);
         if (filter.type === "intersect") {
-            all_items = new Set([...items].filter(x => fitting.has(x)));
+            all_items = new Set([...all_items].filter(x => fitting.has(x)));
         } else if (filter.type === "union") {
             console.log(max_size, all_items.size);
             if (all_items.size === max_size) {
@@ -74,11 +74,13 @@ raw_filters.forEach(item => {
     let current_filter = new Filter(item.dataset.type, item.dataset.content, item.dataset.property, item.dataset.compareby);
     filters.push(current_filter);
 })
+console.log(filters);
 let i = 0;
 let all_filters = new Set();
-window.addEventListener("load", () =>
+window.addEventListener("change", () =>
     raw_filters.forEach(current_filter => {
         let current_filter_document = filters[i];
+        console.log(current_filter_document);
         current_filter.addEventListener("change", () => {
             if (current_filter.checked) {
                 all_filters.add(current_filter_document);

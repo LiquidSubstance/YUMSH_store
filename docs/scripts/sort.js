@@ -20,5 +20,4 @@ select.addEventListener("change", () => {
     items.forEach(item => {
         wrapper.appendChild(item);
     })
-
 });
