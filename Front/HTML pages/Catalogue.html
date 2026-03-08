@@ -46,7 +46,29 @@
                     <input type = "text" id = "by-price-down" class = "filter-item" data-property = "price" data-content = "" data-type = "intersect" data-compareby = "greater">
                 </div>
             </div>
-
+            <button class = "open-button" onclick="open()">Добавить новый фильтр</button>
+            <div class="filter-constructor-wrapper">
+                <div class="constructor-content">
+                    <button class = "close-button" onclick="close()">x</button>
+                    <h2>Добавить новый фильтр</h2>
+                    <p>Выберите тип фильтра</p>
+                    <select id = "type-select">
+                        <option value = "intersect">Пересечение</option>
+                        <option value = "union">Объединение</option>
+                    </select>
+                    <p>
+                        Выберите признак сравнения
+                        <input type = "text" aria-label="Выберите признак сравнения" id="comparison" class = "constructor-input">
+                    </p>
+                    <p>
+                        Выберите имя признака сравнения
+                        <input type = "text" aria-label="Выберите имя признака сравнения" id="select-name" class = "constructor-input">
+                    </p>
+                    <input class = "preview-filter-item" type = "checkbox" data-property = "" data-content = "" data-type = "" data-compareby = "" id = "preview-filter-item">
+                    <label id = "preview-filter-item-label" for = "preview-filter-item"></label>
+                    <button class = "upload-button" onclick="upload_filter()">Загрузить</button>
+                </div>
+            </div>
         </div>
         <div class="function-bar">
             <p>Сортировать по</p>
@@ -116,6 +138,11 @@
             <h2> Почтовая карта 2024 дизайн 1 </h2>
             <p> 150₽ </p>
         </div>
+        <div class="catalogue-item" data-name = "Нашивка 2024" data-price = "150" data-type = "Другое" data-date = 2024>
+            <img src="../contents/mark.png" width="192" height="225">
+            <h2> Нашивка 2024 </h2>
+            <p> 150₽ </p>
+        </div>
     </div>
     <hr>
     <div class = "add-item-wrapper">
@@ -152,7 +179,7 @@
     <script src="../scripts/sort.js"></script>
     <script src="../scripts/upload.js"></script>
     <script src="../scripts/filter.js"></script>
+    <script src="../scripts/filter_constructor.js"></script>
 </main>
 </body>
 </html>
-
