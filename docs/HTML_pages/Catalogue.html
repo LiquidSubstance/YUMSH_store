@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel = "icon" href = "../contents/logo.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -26,23 +27,23 @@
     <div class="function-bar-wrapper">
         <div class = "filter">
             <p> Отфильтровать по </p>
-            <div class="filter-item">
+            <div class="filter-items">
                 <p>Типу:</p>
                 <div class="not-price">
-                    <input class = "form" type = "checkbox" id = "by-type-cup" data-property = "type" data-content = "Кружка" data-type = "union" data-compareby = "equal">
+                    <input class = "filter-item" type = "checkbox" id = "by-type-cup" data-property = "type" data-content = "Кружка" data-type = "union" data-compareby = "equal">
                     <label for = "by-type-cup"> Кружка </label>
-                    <input class = "form" type = "checkbox" id = "by-type-shirt" data-property = "type" data-content = "Футболка" data-type = "union" data-compareby = "equal">
+                    <input class = "filter-item" type = "checkbox" id = "by-type-shirt" data-property = "type" data-content = "Футболка" data-type = "union" data-compareby = "equal">
                     <label  for = "by-type-shirt"> Футболка </label>
-                    <input class = "form" type = "checkbox" id = "by-type-cap" data-property = "type" data-content = "Кепка" data-type = "union" data-compareby = "equal">
+                    <input class = "filter-item" type = "checkbox" id = "by-type-cap" data-property = "type" data-content = "Кепка" data-type = "union" data-compareby = "equal">
                     <label for = "by-type-cap"> Кепка </label>
                 </div>
                 <hr>
                 <div class="price">
                 <p>Цене:</p>
                     <label for = "by-price-up"> Не более </label>
-                    <input type = "text" id = "by-price-up" class = "form" data-property = "price" data-content = "" data-type = "intersect" data-compareby = "lesser">
+                    <input type = "text" id = "by-price-up" class = "filter-item" data-property = "price" data-content = "" data-type = "intersect" data-compareby = "lesser">
                     <label for = "by-price-down"> Не менее </label>
-                    <input type = "text" id = "by-price-down" class = "form" data-property = "price" data-content = "" data-type = "intersect" data-compareby = "greater">
+                    <input type = "text" id = "by-price-down" class = "filter-item" data-property = "price" data-content = "" data-type = "intersect" data-compareby = "greater">
                 </div>
             </div>
 
@@ -60,62 +61,57 @@
     </div>
     <hr>
     <div class="catalogue">
-        <div class="catalogue-item" data-name = "Кружка 2025 2й дизайн" data-price = "1000" data-type = "cup" data-date = 2025>
+        <div class="catalogue-item" data-name = "Кружка 2025 2й дизайн" data-price = "1000" data-type = "Кружка" data-date = 2025>
             <img src="../contents/renderv7.png" width="192" height="225">
             <h2> Кружка 2025 2й дизайн </h2>
             <p> 1000₽ </p>
         </div>
-        <div class="catalogue-item" data-name = "Кружка 2024 1й дизайн" data-price = "1500" data-type = "cup" data-date = 2024>
+        <div class="catalogue-item" data-name = "Кружка 2024 1й дизайн" data-price = "1500" data-type = "Кружка" data-date = 2024>
             <img src="../contents/renderv5.png" width="192" height="225">
             <h2> Кружка 2024 1й дизайн </h2>
             <p> 1500₽ </p>
         </div>
-        <div class="catalogue-item" data-name = "Зачетная Кружка 2025" data-price = "2000" data-type = "cup" data-date = 2025>
+        <div class="catalogue-item" data-name = "Зачетная Кружка 2025" data-price = "2000" data-type = "Кружка" data-date = 2025>
             <img src="../contents/renderv6.png" width="192" height="225">
             <h2> Зачетная Кружка 2025 </h2>
             <p> 2000₽ </p>
         </div>
-        <div class="catalogue-item" data-name = "Кружка 2024 2й дизайн" data-price = "1750" data-type = "cup" data-date = 2024>
+        <div class="catalogue-item" data-name = "Кружка 2024 2й дизайн" data-price = "1750" data-type = "Кружка" data-date = 2024>
             <img src="../contents/renderv8.png" width="192" height="225">
             <h2> Кружка 2024 2й дизайн </h2>
             <p> 1750₽ </p>
         </div>
-        <div class="catalogue-item" data-name = "Что-то" data-price = "500" data-type = "smth" data-date = 2023>
-            <img src="../contents/Placeholder.png" width="192" height="225">
-            <h2> Что-то </h2>
-            <p> 500₽ </p>
-        </div>
-        <div class="catalogue-item" data-name = "Футболка 2024" data-price = "3000" data-type = "shirt" data-date = 2024>
+        <div class="catalogue-item" data-name = "Футболка 2024" data-price = "3000" data-type = "Футболка" data-date = 2024>
             <img src="../contents/shirt.png" width="192" height="225">
             <h2> Футболка 2024 </h2>
             <p> 3000₽ </p>
         </div>
-        <div class="catalogue-item" data-name = "Кепка 2024" data-price = "1500" data-type = "cap" data-date = 2024>
+        <div class="catalogue-item" data-name = "Кепка 2024" data-price = "1500" data-type = "Кепка" data-date = 2024>
             <img src="../contents/capv3.png" width="192" height="225">
             <h2> Кепка 2024 </h2>
             <p> 1500₽ </p>
         </div>
-        <div class="catalogue-item" data-name = "Значок 2025" data-price = "100" data-type = "pin" data-date = 2025>
+        <div class="catalogue-item" data-name = "Значок 2025" data-price = "100" data-type = "Значок" data-date = 2025>
             <img src="../contents/pin.png" width="192" height="225">
             <h2> Значок 2025 </h2>
             <p> 100₽ </p>
         </div>
-        <div class="catalogue-item" data-name = "Ручка 2024" data-price = "300" data-type = "pen" data-date = 2024>
+        <div class="catalogue-item" data-name = "Ручка 2024" data-price = "300" data-type = "Ручка" data-date = 2024>
             <img src="../contents/mrpen.png" width="192" height="225">
             <h2> Ручка 2024 </h2>
             <p> 300₽ </p>
         </div>
-        <div class="catalogue-item" data-name = "Браслет 2024" data-price = "50" data-type = "bracelet" data-date = 2024>
+        <div class="catalogue-item" data-name = "Браслет 2024" data-price = "50" data-type = "Браслет" data-date = 2024>
             <img src="../contents/braceletblue.png" width="192" height="225">
             <h2> Браслет 2024 </h2>
             <p> 50₽ </p>
         </div>
-        <div class="catalogue-item" data-name = "Обложка для паспорта 2024" data-price = "2000" data-type = "misc" data-date = 2024>
+        <div class="catalogue-item" data-name = "Обложка для паспорта 2024" data-price = "2000" data-type = "Другое" data-date = 2024>
             <img src="../contents/passport1.png" width="192" height="225">
             <h2> Обложка для паспорта 2024 </h2>
             <p> 2000₽ </p>
         </div>
-        <div class="catalogue-item" data-name = "Почтовая карта 2024 дизайн 1" data-price = "150" data-type = "postcard" data-date = 2024>
+        <div class="catalogue-item" data-name = "Почтовая карта 2024 дизайн 1" data-price = "150" data-type = "Открытка" data-date = 2024>
             <img src="../contents/postcard.png" width="192" height="225">
             <h2> Почтовая карта 2024 дизайн 1 </h2>
             <p> 150₽ </p>
@@ -158,5 +154,4 @@
     <script src="../scripts/filter.js"></script>
 </main>
 </body>
-
 </html>
