@@ -3,7 +3,6 @@ const filter_menu_price = document.querySelectorAll(".price");
 wrapper = document.querySelector(".catalogue");
 const raw_items = Array.from(wrapper.querySelectorAll(".catalogue-item"));
 let max_size = raw_items.length;
-// const items = Array.from(wrapper.querySelectorAll(".catalogue-item"));
 class CatalogueItem {
     constructor(name, price, type, date) {
         this.name = name;
@@ -37,19 +36,26 @@ class Filter {
 
 function uniteFilters(filters, items, wrapper, raw_items, max_size) {
     let all_items = new Set(items);
+    let unions = Array();
+    let intersections = Array();
     filters.forEach(filter => {
         let fitting = filter.applyFilter(items, wrapper);
         console.log(fitting);
         if (filter.type === "intersect") {
-            all_items = new Set([...all_items].filter(x => fitting.has(x)));
+            intersections.push(fitting);
         } else if (filter.type === "union") {
-            console.log(max_size, all_items.size);
-            if (all_items.size === max_size) {
-                all_items = new Set([...items].filter(x => fitting.has(x)));
-            } else {
-                all_items = new Set([...all_items, ...fitting]);
-            }
+            unions.push(fitting);
         }
+    })
+    unions.forEach(fitting => {
+        if (all_items.size === max_size) {
+            all_items = new Set([...items].filter(x => fitting.has(x)));
+        } else {
+            all_items = new Set([...all_items, ...fitting]);
+        }
+    })
+    intersections.forEach(fitting => {
+        all_items = new Set([...all_items].filter(x => fitting.has(x)));
     })
     let i = 0;
     wrapper.innerHTML = "";
