@@ -20,15 +20,25 @@ function upload_item(){
     const form_date = document.getElementById("file-upload-date")
     const form_price = document.getElementById("file-upload-price");
     const form_name = document.getElementById("file-upload-name");
-    const preview_item = document.getElementById("preview")
+    const form_image = document.getElementById("file-upload-image");
     const form_type = document.getElementById("file-upload-type");
-    const new_item = preview_item.cloneNode(true);
-    new_item.removeAttribute("id");
-    new_item.className = "catalogue-item";
-    new_item.dataset.price = form_price.value;
-    new_item.dataset.name = form_name.value;
-    new_item.dataset.date = form_date.value;
-    new_item.dataset.type = form_type.value;
-    wrapper.append(new_item);
-
+    const preview_item = document.getElementById("preview");
+    const button = document.getElementById("add-item-button");
+    if (!form_date.value || !form_price.value || !form_name.value || !form_image.value || !form_type.value) {
+        button.textContent = "Не удалось загрузить товар, отсутствуют обязательные атрибуты.";
+        button.style.color = "red";
+        setTimeout(() => {
+            button.textContent = "Загрузить";
+            button.style.color = "black";
+        }, 1000)
+    } else {
+        const new_item = preview_item.cloneNode(true);
+        new_item.removeAttribute("id");
+        new_item.className = "catalogue-item";
+        new_item.dataset.price = form_price.value;
+        new_item.dataset.name = form_name.value;
+        new_item.dataset.date = form_date.value;
+        new_item.dataset.type = form_type.value;
+        wrapper.append(new_item);
+    }
 }
