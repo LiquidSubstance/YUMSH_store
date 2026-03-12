@@ -1,8 +1,5 @@
-const filter_menu_not_price = document.querySelectorAll(".not-price");
-const filter_menu_price = document.querySelectorAll(".price");
 wrapper = document.querySelector(".catalogue");
 const raw_items = Array.from(wrapper.querySelectorAll(".catalogue-item"));
-let max_size = raw_items.length;
 class CatalogueItem {
     constructor(name, price, type, date) {
         this.name = name;
@@ -34,29 +31,23 @@ class Filter {
     };
 }
 
-function uniteFilters(filters, items, wrapper, raw_items, max_size) {
+function uniteFilters(filters, items, wrapper, raw_items) {
     let all_items = new Set(items);
-    let unions = Array();
-    let intersections = Array();
-    filters.forEach(filter => {
-        let fitting = filter.applyFilter(items, wrapper);
+    filters.sort((a, b) => {
+        return a.property.localeCompare(b.property);
+    })
+    console.log(filters);
+    let j = 0;
+    while (j < filters.length) {
+        let fitting = filters[j].applyFilter(items);
+        while (j < filters.length - 1 && filters[j].property === filters[j + 1].property) {
+            j++;
+            fitting = new Set([...filters[j].applyFilter(items), ...fitting]);
+        }
         console.log(fitting);
-        if (filter.type === "intersect") {
-            intersections.push(fitting);
-        } else if (filter.type === "union") {
-            unions.push(fitting);
-        }
-    })
-    unions.forEach(fitting => {
-        if (all_items.size === max_size) {
-            all_items = new Set([...items].filter(x => fitting.has(x)));
-        } else {
-            all_items = new Set([...all_items, ...fitting]);
-        }
-    })
-    intersections.forEach(fitting => {
         all_items = new Set([...all_items].filter(x => fitting.has(x)));
-    })
+        j++;
+    }
     let i = 0;
     wrapper.innerHTML = "";
     raw_items.forEach(item => {
@@ -82,24 +73,21 @@ raw_filters.forEach(item => {
 })
 console.log(filters);
 let i = 0;
-let all_filters = new Set();
-window.addEventListener("change", () =>
-    raw_filters.forEach(current_filter => {
-        let current_filter_document = filters[i];
-        console.log(current_filter_document);
-        current_filter.addEventListener("change", () => {
-            if (current_filter.checked) {
-                all_filters.add(current_filter_document);
-                console.log(current_filter_document, "added");
-                uniteFilters(all_filters, items, wrapper, raw_items, max_size);
-            } else  if (!current_filter.checked) {
-                all_filters.delete(current_filter_document);
-                console.log(current_filter_document, "deleted");
-                uniteFilters(all_filters, items, wrapper, raw_items, max_size);
-            }
-            console.log(all_filters);
-        });
-        i++;
-        i %= filters.length;
-    })
-)
+let all_filters = new Array();
+raw_filters.forEach(current_filter => {
+    let current_filter_document = filters[i];
+    console.log(current_filter_document);
+    current_filter.addEventListener("change", () => {
+        if (current_filter.checked && !all_filters.includes(current_filter_document)) {
+            all_filters.push(current_filter_document);
+            console.log(current_filter_document, "added");
+        } else  if (!current_filter.checked) {
+            all_filters = all_filters.filter(item => item !== current_filter_document);
+            console.log(current_filter_document, "deleted");
+        }
+        uniteFilters(all_filters, items, wrapper, raw_items);
+        console.log(all_filters);
+    });
+    i++;
+    i %= filters.length;
+})
