@@ -56,7 +56,19 @@ function upload_filter() {
         new_filter.dataset.compareby = "equal";
         filter_wrapper.append(new_filter);
         filter_wrapper.append(new_label);
-        filters.push(new Filter(new_filter.dataset.type, new_filter.dataset.content, new_filter.dataset.property, new_filter.dataset.compareby));
+        let new_filter_document = new Filter(new_filter.dataset.type, new_filter.dataset.content, new_filter.dataset.property, new_filter.dataset.compareby);
+        filters.push(new_filter_document);
         raw_filters.push(new_filter);
+        new_filter.addEventListener("change", () => {
+            if (new_filter.checked && !all_filters.includes(new_filter_document)) {
+                all_filters.push(new_filter_document);
+                console.log(new_filter_document, "added");
+            } else  if (!new_filter.checked) {
+                all_filters = all_filters.filter(item => item !== new_filter_document);
+                console.log(new_filter_document, "deleted");
+            }
+            uniteFilters(all_filters, items, wrapper, raw_items);
+            console.log(all_filters);
+        });
     }
 }
