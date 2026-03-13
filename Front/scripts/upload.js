@@ -39,6 +39,8 @@ function upload_item(){
         new_item.dataset.name = form_name.value;
         new_item.dataset.date = form_date.value;
         new_item.dataset.type = form_type.value;
+        raw_items.push(new_item);
+        items.push(new CatalogueItem(new_item.dataset.name, new_item.dataset.price, new_item.dataset.type, new_item.dataset.date));
         wrapper.append(new_item);
     }
 }
