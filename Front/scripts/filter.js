@@ -4,31 +4,37 @@ class CatalogueItem {
     constructor(name, price, type, date) {
         this.name = name;
         this.price = price;
-        this.type = type;
         this.date = date;
+        this.type = type;
     }
 }
 class Filter {
-    constructor(type, content, property, compareby) {
-        this.type = type;
+    constructor(content, property) {
         this.content = content;
         this.property = property;
-        this.compareby = compareby;
     }
     applyFilter(items) {
         let fitting = new Set();
         items.forEach(item => {
             let prop = this.property;
-            if (this.compareby === "equal" && item[prop] === this.content) {
-                fitting.add(item);
-            } else if (this.compareby === "greater" && Number(item[prop]) > Number(this.content)){
-                fitting.add(item);
-            } else if (this.compareby === "lesser" && Number(item[prop]) < Number(this.content)){
+            if (item[prop] === this.content) {
                 fitting.add(item);
             }
         });
         return fitting;
     };
+    applyPriceFilter(items) {
+        let fitting = new Set();
+        if (this.property === "price") {
+            items.forEach(item => {
+                let prop = this.property;
+                if (Number(item[prop]) <= Number(this.content[0]) && Number(item[prop]) >= Number(this.content[1])) {
+                    fitting.add(item);
+                }
+            });
+            return fitting;
+        }
+    }
 }
 
 function uniteFilters(filters, items, wrapper, raw_items) {
@@ -39,6 +45,13 @@ function uniteFilters(filters, items, wrapper, raw_items) {
     console.log(filters);
     let j = 0;
     while (j < filters.length) {
+        if (filters[j].property === "price") {
+            let fitting = filters[j].applyPriceFilter(items);
+            console.log(fitting);
+            all_items = new Set([...all_items].filter(x => fitting.has(x)));
+            j++;
+            continue;
+        }
         let fitting = filters[j].applyFilter(items);
         while (j < filters.length - 1 && filters[j].property === filters[j + 1].property) {
             j++;
@@ -65,10 +78,7 @@ raw_items.forEach(item => {
 })
 let filters = []
 raw_filters.forEach(item => {
-    if (item.dataset.type === "price") {
-        item.dataset.content = item.value;
-    }
-    let current_filter = new Filter(item.dataset.type, item.dataset.content, item.dataset.property, item.dataset.compareby);
+    let current_filter = new Filter(item.dataset.content, item.dataset.property);
     filters.push(current_filter);
 })
 console.log(filters);
@@ -90,4 +100,21 @@ raw_filters.forEach(current_filter => {
     });
     i++;
     i %= filters.length;
+});
+let price_down = document.getElementById("by-price-up");
+let price_up = document.getElementById("by-price-down");
+let price_filter = new Filter([1e9, -1], "price");
+let price_filter_wrapper = document.querySelector(".price");
+price_filter_wrapper.addEventListener("change", () => {
+    all_filters = all_filters.filter(item => item !== price_filter);
+    price_filter.content[0] = price_down.value;
+    price_filter.content[1] = price_up.value;
+    if (!price_down.value) {
+        price_filter.content[0] = 1e9
+    }
+    if (!price_up.value) {
+        price_filter.content[1] = -1;
+    }
+    all_filters.push(price_filter);
+    uniteFilters(all_filters, items, wrapper, raw_items);
 })
