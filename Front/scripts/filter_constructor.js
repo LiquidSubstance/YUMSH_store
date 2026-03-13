@@ -12,14 +12,10 @@ window.onclick = () => {
         upload_menu.style.display = "none";
     }
 }
-const form_type_filter = document.getElementById("type-select");
 const form_comparison_filter = document.getElementById("comparison");
 const form_name_filter = document.getElementById("select-name");
 const preview_filter = document.getElementById("preview-filter-item");
 const label_filter = document.getElementById("preview-filter-item-label");
-form_type_filter.addEventListener("change", () => {
-    preview_filter.dataset.type = form_type_filter.value;
-})
 form_comparison_filter.addEventListener("change", () => {
     preview_filter.dataset.property = form_comparison_filter.value;
 })
@@ -29,10 +25,9 @@ form_name_filter.addEventListener("change", () => {
 })
 function upload_filter() {
     const filter_wrapper = document.querySelector(".not-price");
-    const form_type_filter = document.getElementById("type-select");
     const form_comparison_filter = document.getElementById("comparison");
     const form_name_filter = document.getElementById("select-name");
-    if (!form_comparison_filter.value || !form_type_filter.value || !form_name_filter.value) {
+    if (!form_comparison_filter.value || !form_name_filter.value) {
         const upload_button = document.querySelector(".upload-button");
         upload_button.style.color = "red";
         upload_button.textContent = "Не удалось загрузить фильтр, отсутствуют обязательные атрибуты."
@@ -50,13 +45,11 @@ function upload_filter() {
         new_filter.id = new_id;
         new_label.setAttribute("for", new_id)
         new_filter.className = "filter-item";
-        new_filter.dataset.type = form_type_filter.value;
         new_filter.dataset.content = form_name_filter.value;
         new_filter.dataset.property = form_comparison_filter.value;
-        new_filter.dataset.compareby = "equal";
         filter_wrapper.append(new_filter);
         filter_wrapper.append(new_label);
-        let new_filter_document = new Filter(new_filter.dataset.type, new_filter.dataset.content, new_filter.dataset.property, new_filter.dataset.compareby);
+        let new_filter_document = new Filter(new_filter.dataset.content, new_filter.dataset.property);
         filters.push(new_filter_document);
         raw_filters.push(new_filter);
         new_filter.addEventListener("change", () => {
