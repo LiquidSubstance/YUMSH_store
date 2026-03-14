@@ -30,20 +30,20 @@
             <div class="filter-items">
                 <p>Типу:</p>
                 <div class="not-price">
-                    <input class = "filter-item" type = "checkbox" id = "by-type-cup" data-property = "type" data-content = "Кружка" data-type = "union" data-compareby = "equal">
+                    <input class = "filter-item" type = "checkbox" id = "by-type-cup" data-property = "type" data-content = "Кружка">
                     <label for = "by-type-cup"> Кружка </label>
-                    <input class = "filter-item" type = "checkbox" id = "by-type-shirt" data-property = "type" data-content = "Футболка" data-type = "union" data-compareby = "equal">
+                    <input class = "filter-item" type = "checkbox" id = "by-type-shirt" data-property = "type" data-content = "Футболка">
                     <label  for = "by-type-shirt"> Футболка </label>
-                    <input class = "filter-item" type = "checkbox" id = "by-type-cap" data-property = "type" data-content = "Кепка" data-type = "union" data-compareby = "equal">
+                    <input class = "filter-item" type = "checkbox" id = "by-type-cap" data-property = "type" data-content = "Кепка">
                     <label for = "by-type-cap"> Кепка </label>
                 </div>
                 <hr>
                 <div class="price">
                 <p>Цене:</p>
                     <label for = "by-price-up"> Не более </label>
-                    <input type = "text" id = "by-price-up" class = "filter-item" data-property = "price" data-content = "" data-type = "intersect" data-compareby = "lesser">
+                    <input type = "text" id = "by-price-up" class = "filter-item-price" data-property = "price" data-content = "">
                     <label for = "by-price-down"> Не менее </label>
-                    <input type = "text" id = "by-price-down" class = "filter-item" data-property = "price" data-content = "" data-type = "intersect" data-compareby = "greater">
+                    <input type = "text" id = "by-price-down" class = "filter-item-price" data-property = "price" data-content = "">
                 </div>
             </div>
             <button class = "open-button" onclick="open()">Добавить новый фильтр</button>
@@ -51,11 +51,6 @@
                 <div class="constructor-content">
                     <button class = "close-button" onclick="close()">x</button>
                     <h2>Добавить новый фильтр</h2>
-                    <p>Выберите тип фильтра</p>
-                    <select id = "type-select">
-                        <option value = "intersect">Пересечение</option>
-                        <option value = "union">Объединение</option>
-                    </select>
                     <p>
                         Выберите признак сравнения
                         <input type = "text" aria-label="Выберите признак сравнения" id="comparison" class = "constructor-input">
