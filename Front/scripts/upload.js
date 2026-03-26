@@ -42,5 +42,13 @@ function upload_item(){
         raw_items.push(new_item);
         items.push(new CatalogueItem(new_item.dataset.name, new_item.dataset.price, new_item.dataset.type, new_item.dataset.date));
         wrapper.append(new_item);
+        const res = await fetch("http://localhost:3000/create_page", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({ name : form_name.value})
+        });
+        const data = await res.json();
+        window.open(data.new_path.replace("__dirname", ""));
+        console.log(data);
     }
 }
