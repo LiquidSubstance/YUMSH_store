@@ -24,9 +24,6 @@ form_price.addEventListener("change", () => {
 });
 form_description.addEventListener("change", () => {
     preview_description.textContent = form_description.value;
-    if (form_description.value.length <= 30) {
-        preview_description.style.textAlign = "center";
-    }
 })
 async function upload_item() {
     wrapper = document.querySelector(".catalogue");
@@ -58,9 +55,16 @@ async function upload_item() {
             body: JSON.stringify({
                 name: form_name.value,
                 price: form_price.value,
-                description: form_description.value
+                description: form_description.value,
             })
         });
+        const formdata = new FormData();
+        const new_file = new File([form_image.files[0]], form_name.value, {type: form_image.files[0].type});
+        formdata.append('file', new_file);
+        await fetch("/upload_item_image", {
+            method: "POST",
+            body: formdata, name: form_name.value
+        })
         const data = await res.json();
         window.open("http://localhost:3000/HTML_Pages/Item_Pages/" + form_name.value + ".html");
         console.log(data);
