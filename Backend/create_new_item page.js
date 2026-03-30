@@ -1,15 +1,17 @@
 const express = require('express')
 const fs = require('fs');
 const path = require('path');
+const multer = require('multer');
+const cors = require('cors');
 
 const app = express();
 app.use(express.json());
-const cors = require('cors');
 app.use(express.static(path.join(__dirname, "../Frontend")));
 app.use(cors());
+const upload = multer({ dest: '../Frontend/contents/' });
 
 app.post("/create_page", (req, res) => {
-    const {name, price, description, image} = req.body;
+    const {name, price, description} = req.body;
     const src = path.join(__dirname, "../Frontend/HTML_pages/Item_pages/template.html");
     const dst = path.join(__dirname, "../Frontend/HTML_pages/Item_pages/" + name + ".html");
     fs.readFile(src, "utf-8", (err, data) => {
@@ -18,8 +20,9 @@ app.post("/create_page", (req, res) => {
         }
         let updated = data
             .replace("{{NAME}}", name)
-            .replace("{{PRICE}}", price)
-            .replace("{{DESCRIPTION}}", description);
+            .replace("{{PRICE}}", price + "₽")
+            .replace("{{DESCRIPTION}}", description)
+            .replace("../../contents/Placeholder.png", "../../contents/" + name + ".png");
         fs.writeFile(dst, updated, err => {
             if (err) {
                 console.error(err);
@@ -29,6 +32,18 @@ app.post("/create_page", (req, res) => {
                 new_path: dst
             })
         })
+    })
+})
+app.post("/upload_item_image", upload.single("file"), (req, res) => {
+    const {name} = req.body;
+    const src = req.file.path;
+    const dst = path.join(__dirname, "../Frontend/contents/" + name + ".png");
+    console.log(dst)
+    fs.rename(src, dst, err => {
+        if (err) {
+            console.error(err);
+        }
+        res.json({ok: true});
     })
 })
 app.listen(3000);
