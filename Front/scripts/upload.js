@@ -61,9 +61,10 @@ async function upload_item() {
         const formdata = new FormData();
         const new_file = new File([form_image.files[0]], form_name.value, {type: form_image.files[0].type});
         formdata.append('file', new_file);
+        formdata.append('name', form_name.value);
         await fetch("/upload_item_image", {
             method: "POST",
-            body: formdata, name: form_name.value
+            body: formdata
         })
         const data = await res.json();
         window.open("http://localhost:3000/HTML_Pages/Item_Pages/" + form_name.value + ".html");
