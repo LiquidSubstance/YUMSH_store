@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Каталог</title>
     <link rel = "icon" href = "../contents/logo.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,45 +25,53 @@
 </header>
 <main>
     <div class="function-bar-wrapper">
-        <div class = "filter">
-            <p> Отфильтровать по </p>
-            <div class="filter-items">
-                <p>Типу:</p>
-                <div class="not-price">
-                    <input class = "filter-item" type = "checkbox" id = "by-type-cup" data-property = "type" data-content = "Кружка">
-                    <label for = "by-type-cup"> Кружка </label>
-                    <input class = "filter-item" type = "checkbox" id = "by-type-shirt" data-property = "type" data-content = "Футболка">
-                    <label  for = "by-type-shirt"> Футболка </label>
-                    <input class = "filter-item" type = "checkbox" id = "by-type-cap" data-property = "type" data-content = "Кепка">
-                    <label for = "by-type-cap"> Кепка </label>
+        <button class = "open-button" onclick="open()">Добавить новый фильтр</button>
+        <div class="filter-constructor-wrapper">
+            <div class="constructor-content">
+                <button class = "close-button" onclick="close()">x</button>
+                <h2>Добавить новый фильтр</h2>
+                <p>
+                    Выберите признак сравнения
+                    <input type = "text" aria-label="Выберите признак сравнения" id="comparison" class = "constructor-input">
+                </p>
+                <p>
+                    Выберите имя признака сравнения
+                    <input type = "text" aria-label="Выберите имя признака сравнения" id="select-name" class = "constructor-input">
+                </p>
+                <div class = "filter-item-wrapper">
+                    <input class = "preview-filter-item" type = "checkbox" data-property = "" data-content = "" data-type = "" data-compareby = "" id = "preview-filter-item">
+                    <label id = "preview-filter-item-label" for = "preview-filter-item"></label>
                 </div>
-                <hr>
+                <button class = "upload-button" onclick="upload_filter()">Загрузить</button>
+            </div>
+        </div>
+        <hr>
+        <div class = "filter">
+            <p> Фильтры </p>
+            <div class="filter-items">
+                <div class="not-price">
+                    <div class = "filter-item-wrapper">
+                        <input class = "filter-item" type = "checkbox" id = "by-type-cup" data-property = "type" data-content = "Кружка">
+                        <label for = "by-type-cup"> Кружка </label>
+                    </div>
+                    <div class = "filter-item-wrapper">
+                        <input class = "filter-item" type = "checkbox" id = "by-type-shirt" data-property = "type" data-content = "Футболка">
+                        <label  for = "by-type-shirt"> Футболка </label>
+                    </div>
+                    <div class = "filter-item-wrapper">
+                        <input class = "filter-item" type = "checkbox" id = "by-type-cap" data-property = "type" data-content = "Кепка">
+                        <label for = "by-type-cap"> Кепка </label>
+                    </div>
+                </div>
                 <div class="price">
-                <p>Цене:</p>
+                    <p>По цене:</p>
                     <label for = "by-price-up"> Не более </label>
                     <input type = "text" id = "by-price-up" class = "filter-item-price" data-property = "price" data-content = "">
                     <label for = "by-price-down"> Не менее </label>
                     <input type = "text" id = "by-price-down" class = "filter-item-price" data-property = "price" data-content = "">
                 </div>
             </div>
-            <button class = "open-button" onclick="open()">Добавить новый фильтр</button>
-            <div class="filter-constructor-wrapper">
-                <div class="constructor-content">
-                    <button class = "close-button" onclick="close()">x</button>
-                    <h2>Добавить новый фильтр</h2>
-                    <p>
-                        Выберите признак сравнения
-                        <input type = "text" aria-label="Выберите признак сравнения" id="comparison" class = "constructor-input">
-                    </p>
-                    <p>
-                        Выберите имя признака сравнения
-                        <input type = "text" aria-label="Выберите имя признака сравнения" id="select-name" class = "constructor-input">
-                    </p>
-                    <input class = "preview-filter-item" type = "checkbox" data-property = "" data-content = "" data-type = "" data-compareby = "" id = "preview-filter-item">
-                    <label id = "preview-filter-item-label" for = "preview-filter-item"></label>
-                    <button class = "upload-button" onclick="upload_filter()">Загрузить</button>
-                </div>
-            </div>
+            <hr>
         </div>
         <div class="function-bar">
             <p>Сортировать по</p>
@@ -79,34 +87,46 @@
     <hr>
     <div class="catalogue">
         <div class="catalogue-item" data-name = "Зачетная Кружка 2025" data-price = "2000" data-type = "Кружка" data-date = 2025 id = "item-3">
-            <img src="../contents/renderv6.png" width="192" height="225">
-            <h2> Зачетная Кружка 2025 </h2>
-            <p> 2000₽ </p>
+            <a href="Item_Pages/Зачетная%20Кружка%202025.html">
+                <img src="../contents/renderv6.png" width="192" height="225">
+                <h2> Зачетная Кружка 2025 </h2>
+                <p> 2000₽ </p>
+            </a>
         </div>
         <div class="catalogue-item" data-name = "Футболка 2024" data-price = "3000" data-type = "Футболка" data-date = 2024 id = "item-5">
-            <img src="../contents/shirt.png" width="192" height="225">
-            <h2> Футболка 2024 </h2>
-            <p> 3000₽ </p>
+            <a href = "Item_Pages/Футболка%202024.html">
+                <img src="../contents/shirt.png" width="192" height="225">
+                <h2> Футболка 2024 </h2>
+                <p> 3000₽ </p>
+            </a>
         </div>
         <div class="catalogue-item" data-name = "Кепка 2024" data-price = "1500" data-type = "Кепка" data-date = 2024 id = "item-6">
-            <img src="../contents/capv3.png" width="192" height="225">
-            <h2> Кепка 2024 </h2>
-            <p> 1500₽ </p>
+            <a href = "Item_Pages/Кепка%202024.html">
+                <img src="../contents/capv3.png" width="192" height="225">
+                <h2> Кепка 2024 </h2>
+                <p> 1500₽ </p>
+            </a>
         </div>
         <div class="catalogue-item" data-name = "Значок 2025" data-price = "100" data-type = "Значок" data-date = 2025 id = "item-7">
-            <img src="../contents/pin.png" width="192" height="225">
-            <h2> Значок 2025 </h2>
-            <p> 100₽ </p>
+            <a href = "Item_Pages/Значок%202025.html">
+                <img src="../contents/pin.png" width="192" height="225">
+                <h2> Значок 2025 </h2>
+                <p> 100₽ </p>
+            </a>
         </div>
         <div class="catalogue-item" data-name = "Браслет 2024" data-price = "50" data-type = "Браслет" data-date = 2024 id = "item-9">
-            <img src="../contents/braceletblue.png" width="192" height="225">
-            <h2> Браслет 2024 </h2>
-            <p> 50₽ </p>
+            <a href = "Item_Pages/Браслет%202024.html">
+                <img src="../contents/braceletblue.png" width="192" height="225">
+                <h2> Браслет 2024 </h2>
+                <p> 50₽ </p>
+            </a>
         </div>
         <div class="catalogue-item" data-name = "Обложка для паспорта 2024" data-price = "2000" data-type = "Другое" data-date = 2024 id = "item-10">
-            <img src="../contents/passport1.png" width="192" height="225">
-            <h2> Обложка для паспорта 2024 </h2>
-            <p> 2000₽ </p>
+            <a href = "Item_Pages/Обложка%20для%20паспорта%202024.html">
+                <img src="../contents/passport1.png" width="192" height="225">
+                <h2> Обложка для паспорта 2024 </h2>
+                <p> 2000₽ </p>
+            </a>
         </div>
     </div>
     <hr>
@@ -158,7 +178,7 @@
     <div class="page-constructor-wrapper">
         <div class = "page-constructor">
             <textarea class = "page-constructor-text" id = "page-constructor-text">Введите описание товара</textarea>
-            <label for = "page-constructor-text">Введите описание товара</label>
+            <label for = "page-constructor-text"></label>
         </div>
     </div>
     <hr>
