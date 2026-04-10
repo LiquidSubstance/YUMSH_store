@@ -1,2 +1,3 @@
-# YUMSH_store
 School project
+-------
+Все изменения до 7 Апреля 2026 находятся в ветке restore

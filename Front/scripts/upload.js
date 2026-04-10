@@ -39,6 +39,9 @@ async function upload_item() {
             button.style.color = "black";
         }, 1000)
     } else {
+        const link = document.querySelector(".preview-link");
+        link.removeAttribute("class");
+        link.href = "Item_Pages/" + form_name.value + ".html";
         const new_item = preview_item.cloneNode(true);
         new_item.removeAttribute("id");
         new_item.className = "catalogue-item";

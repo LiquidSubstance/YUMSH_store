@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
     font-family: "IBM Plex Serif", serif;
 }
@@ -56,3 +57,66 @@ button:hover {
     width: 33%;
     display: inline-block;
 }
+=======
+* {
+    font-family: "IBM Plex Serif", serif;
+}
+.header {
+    background:linear-gradient(90deg, rgba(255,255,255, 0.2), rgba(255,255,255,0)), url("../contents/renderallv2.png");
+    text-align: center;
+}
+.logo {
+    filter: invert(100%);
+}
+.header h1 {
+    font-family: "IBM Plex Serif", serif;
+    font-size: 25px;
+    color: white;
+}
+.nav-item {
+    padding: 30px;
+    display: inline-flex;
+}
+.header ul {
+    padding-left: 0;
+}
+.header li {
+    align-items: center;
+}
+.slogan {
+    font-family: "IBM Plex Serif", serif;
+    color: white;
+    padding-top: 70px;
+    text-align: center;
+    font-size: 80px;
+}
+.scroll-list {
+    overflow: hidden;
+}
+.scroll-list-item {
+    font-family: "IBM Plex Serif", serif;
+    display: flex;
+    width: max-content;
+    gap: 10px;
+}
+.main-container {
+    background-color: white;
+}
+button {
+    font-size: 14px;
+    height: 50px;
+    width: 200px;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    transition: background-color ease 1s;
+}
+button:hover {
+    background-color: rgba(184,184,184,0.85);
+}
+
+.about-us-item {
+    width: 33%;
+    display: inline-block;
+}
+>>>>>>> 02ac1640d2bffe75d8c4c0a8db2a5be72adef4c8
