@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f2172dd3-556d-428b-a9bf-66bad44db99d" name="Changes" comment="all" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JSX File" />
+        <option value="tsconfig.json" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="35CUG5RWw056ERuyXqCSwZCBiqo" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JavaScript Debug.404page.html (1).executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.404page.html.executor&quot;: &quot;Debug&quot;,
+    &quot;JavaScript Debug.Catalogue.html (1).executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.Catalogue.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.main.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.main_page.html (1).executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.main_page.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.template.html.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.create_new_item page.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.cycle.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.filter.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.index.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.server.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.sorting.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.upload.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;22.18.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;22.18.13&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/WebstormProjects/yumsh_shop/Frontend/HTML_pages/Catalogue.html&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;E:/Nodejs/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.nodejs&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2024.3.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\PC\WebstormProjects\yumsh_shop\contents" />
+      <recent name="C:\Users\PC\WebstormProjects\yumsh_shop\contents\background_images" />
+      <recent name="C:\Users\PC\WebstormProjects\yumsh_shop\contents\background images" />
+      <recent name="C:\Users\PC\WebstormProjects\yumsh_shop\scripts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\PC\WebstormProjects\yumsh_shop\Frontend\HTML_pages\Item_Pages" />
+      <recent name="C:\Users\PC\WebstormProjects\yumsh_shop\Frontend\HTML_pages" />
+      <recent name="C:\Users\PC\WebstormProjects\yumsh_shop\Frontend" />
+      <recent name="C:\Users\PC\WebstormProjects\yumsh_shop\contents\background_images" />
+      <recent name="C:\Users\PC\WebstormProjects\yumsh_shop\contents" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Node.js.server">
+    <configuration name="Catalogue.html" type="JavascriptDebugType" nameIsGenerated="true" uri="http://localhost:63342/yumsh_shop/Frontend/HTML_pages/Catalogue.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="template.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/yumsh_shop/Frontend/HTML_pages/Item_Pages/template.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="create_new_item page.js" type="NodeJSConfigurationType" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Backend/create_new_item page.js" working-dir="$PROJECT_DIR$/Backend">
+      <method v="2" />
+    </configuration>
+    <configuration name="cycle.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Frontend/scripts/cycle.js" working-dir="$PROJECT_DIR$/Frontend/scripts">
+      <method v="2" />
+    </configuration>
+    <configuration name="filter.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Frontend/scripts/filter.js" working-dir="$PROJECT_DIR$/Frontend/scripts">
+      <method v="2" />
+    </configuration>
+    <configuration name="server" type="NodeJSConfigurationType" singleton="false" temporary="true" path-to-js-file="$PROJECT_DIR$/Frontend/HTML_pages/Catalogue.html" typescript-loader="bundled" working-dir="$PROJECT_DIR$/Backend">
+      <method v="2">
+        <option name="RunConfigurationTask" enabled="true" run_configuration_name="create_new_item page.js" run_configuration_type="NodeJSConfigurationType" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.Catalogue.html" />
+      <item itemvalue="JavaScript Debug.template.html" />
+      <item itemvalue="Node.js.create_new_item page.js" />
+      <item itemvalue="Node.js.server" />
+      <item itemvalue="Node.js.cycle.js" />
+      <item itemvalue="Node.js.filter.js" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.server" />
+        <item itemvalue="JavaScript Debug.template.html" />
+        <item itemvalue="Node.js.filter.js" />
+        <item itemvalue="Node.js.cycle.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-WS-243.22562.222" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f2172dd3-556d-428b-a9bf-66bad44db99d" name="Changes" comment="" />
+      <created>1762613447318</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1762613447318</updated>
+      <workItem from="1762613448359" duration="8571000" />
+      <workItem from="1762888710619" duration="2403000" />
+      <workItem from="1763499091566" duration="24000" />
+      <workItem from="1763752217590" duration="84000" />
+      <workItem from="1763752307308" duration="6459000" />
+      <workItem from="1763833869830" duration="5384000" />
+      <workItem from="1763930747454" duration="791000" />
+      <workItem from="1764093260391" duration="1790000" />
+      <workItem from="1764343736037" duration="1900000" />
+      <workItem from="1765203484813" duration="8799000" />
+      <workItem from="1765560928930" duration="8635000" />
+      <workItem from="1766169261732" duration="9407000" />
+      <workItem from="1766205601599" duration="603000" />
+      <workItem from="1766240124558" duration="1916000" />
+      <workItem from="1766433123413" duration="3872000" />
+      <workItem from="1766519756580" duration="2857000" />
+      <workItem from="1766578083250" duration="11075000" />
+      <workItem from="1766610886462" duration="1000" />
+      <workItem from="1766685987960" duration="6074000" />
+      <workItem from="1766770823271" duration="12548000" />
+      <workItem from="1766815183513" duration="411000" />
+      <workItem from="1767626169952" duration="4522000" />
+      <workItem from="1767650857632" duration="4331000" />
+      <workItem from="1767697861428" duration="14785000" />
+      <workItem from="1767783022109" duration="12145000" />
+      <workItem from="1767874790177" duration="4256000" />
+      <workItem from="1767880172674" duration="18368000" />
+      <workItem from="1767954841713" duration="10228000" />
+      <workItem from="1768575477754" duration="1980000" />
+      <workItem from="1769182576139" duration="607000" />
+      <workItem from="1769203464196" duration="459000" />
+      <workItem from="1770221085505" duration="594000" />
+      <workItem from="1770924062571" duration="827000" />
+      <workItem from="1771009578215" duration="1864000" />
+      <workItem from="1771051752099" duration="3000" />
+      <workItem from="1771100819138" duration="1198000" />
+      <workItem from="1771426679576" duration="13866000" />
+      <workItem from="1771528389477" duration="1198000" />
+      <workItem from="1771606975461" duration="1188000" />
+      <workItem from="1771873975159" duration="594000" />
+      <workItem from="1771966125598" duration="1640000" />
+      <workItem from="1772298918723" duration="5208000" />
+      <workItem from="1772469684772" duration="26000" />
+      <workItem from="1772469786829" duration="3837000" />
+      <workItem from="1772489964872" duration="314000" />
+      <workItem from="1772524204117" duration="2999000" />
+      <workItem from="1772527750997" duration="1000" />
+      <workItem from="1772825607445" duration="3074000" />
+      <workItem from="1772872457394" duration="10290000" />
+      <workItem from="1772958941219" duration="112000" />
+      <workItem from="1772979027083" duration="9921000" />
+      <workItem from="1773042244972" duration="14427000" />
+      <workItem from="1773085840035" duration="1783000" />
+      <workItem from="1773089177444" duration="19000" />
+      <workItem from="1773130063601" duration="1502000" />
+      <workItem from="1773154925975" duration="8081000" />
+      <workItem from="1773341849931" duration="8642000" />
+      <workItem from="1773422440302" duration="9660000" />
+      <workItem from="1773463956366" duration="672000" />
+      <workItem from="1773510336586" duration="3676000" />
+      <workItem from="1773581811417" duration="1689000" />
+      <workItem from="1773770715233" duration="1788000" />
+      <workItem from="1773848969159" duration="3776000" />
+      <workItem from="1774110667955" duration="4116000" />
+      <workItem from="1774303897411" duration="501000" />
+      <workItem from="1774466422290" duration="6769000" />
+      <workItem from="1774478998427" duration="281000" />
+      <workItem from="1774534288165" duration="2353000" />
+      <workItem from="1774539511220" duration="13176000" />
+      <workItem from="1774646654408" duration="3240000" />
+      <workItem from="1774726310722" duration="6063000" />
+      <workItem from="1774781891994" duration="6406000" />
+      <workItem from="1774826074994" duration="307000" />
+      <workItem from="1774873828019" duration="15500000" />
+      <workItem from="1775417345808" duration="6206000" />
+      <workItem from="1775506431111" duration="487000" />
+      <workItem from="1775506951339" duration="5994000" />
+      <workItem from="1775513541387" duration="840000" />
+      <workItem from="1775594122982" duration="619000" />
+      <workItem from="1775772424757" duration="186000" />
+      <workItem from="1775849440007" duration="1293000" />
+    </task>
+    <task id="LOCAL-00001" summary="all">
+      <option name="closed" value="true" />
+      <created>1775511390180</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1775511390180</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="all" />
+    <option name="LAST_COMMIT_MESSAGE" value="all" />
+  </component>
+</project>
