@@ -1,5 +1,5 @@
 const sqlite3 = require('sqlite3').verbose();
-const catalogue_db = new sqlite3.Database("../Data/catalogue.db");
+const catalogue_db = new sqlite3.Database("../Data/catalogue_db.db");
 catalogue_db.run(`
     CREATE TABLE IF NOT EXISTS items (
         id          INTEGER PRIMARY KEY,
