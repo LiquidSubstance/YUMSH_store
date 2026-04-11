@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:sqlite:C:\Users\PC\WebstormProjects\yumsh_shop\Data\catalogue.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="catalogue_db" uuid="b99256fa-0882-46f6-a03a-a4d8c9da41e7">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/Data/catalogue_db.db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

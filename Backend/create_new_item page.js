@@ -46,4 +46,47 @@ app.post("/upload_item_image", upload.single("file"), (req, res) => {
         res.json({ok: true});
     })
 })
+const sqlite3 = require('sqlite3').verbose();
+const catalogue_db = new sqlite3.Database("../Data/catalogue_db.db");
+catalogue_db.run(`
+    CREATE TABLE IF NOT EXISTS items (
+        id          INTEGER PRIMARY KEY,
+        name        TEXT,
+        price       INTEGER,
+        date        TEXT,
+        description TEXT,
+        type        TEXT,
+        image_path  TEXT,
+        page_link TEXT
+    )                   
+`);
+
+app.post("/upload_item", (req, res) => {
+    const { name, price, date, description, type, image_path, page_link} = req.body;
+
+    const sql = `
+        INSERT INTO items (name, price, date, description, type, image_path, page_link)
+        VALUES (?, ?, ?, ?, ?, ?)
+    `;
+
+    catalogue_db.run(sql, [name, price, date, description, type, image_path, page_link], function (err) {
+        res.json({
+            id: this.lastID,
+            name,
+            price,
+            date,
+            description,
+            type,
+            image_path,
+            page_link,
+        });
+    });
+})
+
+app.get("/upload_item", (req, res) => {
+    db.all("SELECT * FROM items ORDER BY id DESC", [], (err, rows) => {
+        res.json(rows);
+    })
+})
+
 app.listen(3000);
