@@ -1,9 +1,8 @@
-<<<<<<< HEAD
 * {
     font-family: "IBM Plex Serif", serif;
 }
 .header {
-    background:linear-gradient(90deg, rgba(255,255,255, 0.2), rgba(255,255,255,0)), url("/contents/renderallv2.png");
+    background:linear-gradient(90deg, rgba(255,255,255, 0.2), rgba(255,255,255,0)), url("../contents/renderallv2.png");
     text-align: center;
 }
 .logo {
@@ -57,7 +56,6 @@ button:hover {
     width: 33%;
     display: inline-block;
 }
-=======
 * {
     font-family: "IBM Plex Serif", serif;
 }
@@ -119,4 +117,3 @@ button:hover {
     width: 33%;
     display: inline-block;
 }
->>>>>>> 02ac1640d2bffe75d8c4c0a8db2a5be72adef4c8

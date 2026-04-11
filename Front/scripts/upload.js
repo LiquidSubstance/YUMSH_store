@@ -9,6 +9,7 @@ const preview_page_image = document.querySelector(".main-image")
 const preview_description = document.querySelector(".item-description");
 const preview_page_price = document.querySelector(".item-price");
 const preview_page_name = document.querySelector(".item-name");
+
 form_image.addEventListener("change", () => {
     let new_image = form_image.files[0];
     preview_image.src = URL.createObjectURL(new_image);
@@ -39,19 +40,6 @@ async function upload_item() {
             button.style.color = "black";
         }, 1000)
     } else {
-        const link = document.querySelector(".preview-link");
-        link.removeAttribute("class");
-        link.href = "Item_Pages/" + form_name.value + ".html";
-        const new_item = preview_item.cloneNode(true);
-        new_item.removeAttribute("id");
-        new_item.className = "catalogue-item";
-        new_item.dataset.price = form_price.value;
-        new_item.dataset.name = form_name.value;
-        new_item.dataset.date = form_date.value;
-        new_item.dataset.type = form_type.value;
-        raw_items.push(new_item);
-        items.push(new CatalogueItem(new_item.dataset.name, new_item.dataset.price, new_item.dataset.type, new_item.dataset.date));
-        wrapper.append(new_item);
         const res = await fetch("/create_page", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -72,5 +60,18 @@ async function upload_item() {
         const data = await res.json();
         window.open("http://localhost:3000/HTML_Pages/Item_Pages/" + form_name.value + ".html");
         console.log(data);
+        await fetch("/upload_item", {
+            method: "POST",
+            body: JSON.stringify({
+                id: 67,
+                name: form_name.value,
+                price: form_price.value,
+                date: form_date.value,
+                description: form_description.value,
+                type: form_type.value,
+                image_path: "http://localhost:3000/contents/" + form_name.value + ".png",
+                page_link: "http://localhost:3000/HTML_Pages/Item_Pages/" + form_name.value + ".html"
+            })
+        })
     }
 }

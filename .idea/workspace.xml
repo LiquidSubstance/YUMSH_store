@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2172dd3-556d-428b-a9bf-66bad44db99d" name="Changes" comment="all">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/create_new_item page.js" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/create_new_item page.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/upload_item.js" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/upload_item.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/catalogue.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/scripts/upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front/scripts/upload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front/styles/main.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +36,6 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="35CUG5RWw056ERuyXqCSwZCBiqo" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -63,6 +66,7 @@
     "git-widget-placeholder": "main",
     "javascript.nodejs.core.library.configured.version": "22.18.0",
     "javascript.nodejs.core.library.typings.version": "22.18.13",
+    "javascript.preferred.runtime.type.id": "node",
     "last_opened_file_path": "C:/Users/PC/AppData/Roaming/JetBrains/DataGrip2026.1/consoles/db/61af28da-60bc-495d-860c-5129c7636aa8/console.sql",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
@@ -91,7 +95,7 @@
       <recent name="C:\Users\PC\WebstormProjects\yumsh_shop\contents" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.upload_item.js">
+  <component name="RunManager" selected="Node.js.create_new_item page.js">
     <configuration name="Catalogue.html" type="JavascriptDebugType" nameIsGenerated="true" uri="http://localhost:63342/yumsh_shop/Frontend/HTML_pages/Catalogue.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>

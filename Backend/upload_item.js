@@ -8,7 +8,8 @@ catalogue_db.run(`
         date        TEXT,
         description TEXT,
         type        TEXT,
-        image_path  TEXT
+        image_path  TEXT,
+        page_link TEXT
     )                   
 `);
 
@@ -21,14 +22,14 @@ app.use(cors());
 app.use(express.json());
 
 app.post("/upload_item", (req, res) => {
-    const { name, price, date, description, type, image_path} = req.body;
+    const { name, price, date, description, type, image_path, page_link} = req.body;
 
     const sql = `
-        INSERT INTO items (name, price, date, description, type, image_path)
+        INSERT INTO items (name, price, date, description, type, image_path, page_link)
         VALUES (?, ?, ?, ?, ?, ?)
     `;
 
-    catalogue_db.run(sql, [name, price, date, description, type, image_path], function (err) {
+    catalogue_db.run(sql, [name, price, date, description, type, image_path, page_link], function (err) {
         res.json({
             id: this.lastID,
             name,
@@ -36,7 +37,8 @@ app.post("/upload_item", (req, res) => {
             date,
             description,
             type,
-            image_path
+            image_path,
+            page_link,
         });
     });
 })
