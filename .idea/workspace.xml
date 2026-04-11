@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2172dd3-556d-428b-a9bf-66bad44db99d" name="Changes" comment="all">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/upload_item.js" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/upload_item.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/catalogue.db" beforeDir="false" />
-    </list>
+    <list default="true" id="f2172dd3-556d-428b-a9bf-66bad44db99d" name="Changes" comment="all" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -229,7 +225,7 @@
       <workItem from="1775513541387" duration="840000" />
       <workItem from="1775594122982" duration="619000" />
       <workItem from="1775772424757" duration="186000" />
-      <workItem from="1775849440007" duration="6417000" />
+      <workItem from="1775849440007" duration="6455000" />
     </task>
     <task id="LOCAL-00001" summary="all">
       <option name="closed" value="true" />
