@@ -63,6 +63,7 @@ function uniteFilters(filters, items, wrapper, raw_items) {
     }
     let i = 0;
     wrapper.innerHTML = "";
+    console.log(all_items);
     raw_items.forEach(item => {
         if (all_items.has(items[i])) {
             wrapper.appendChild(item);
@@ -72,10 +73,19 @@ function uniteFilters(filters, items, wrapper, raw_items) {
 }
 let raw_filters = Array.from(document.querySelectorAll(".filter-item"));
 let items = []
-raw_items.forEach(item => {
-    let new_item = new CatalogueItem(item.dataset.name, item.dataset.price, item.dataset.type, item.dataset.date);
-    items.push(new_item);
-})
+async function get_items_list() {
+    const items_res = await fetch("/get_items", {
+        method: "GET",
+        headers: {"Content-Type": "application/json"},
+    })
+    console.log(items_res);
+    let all_catalogue_items = Array.from(await items_res.json());
+    all_catalogue_items.forEach(item => {
+        let new_item = new CatalogueItem(item.name, item.price, item.type, item.date);
+        items.push(new_item);
+    })
+}
+get_items_list();
 let filters = []
 raw_filters.forEach(item => {
     let current_filter = new Filter(item.dataset.content, item.dataset.property);

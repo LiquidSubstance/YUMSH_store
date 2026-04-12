@@ -30,7 +30,6 @@ async function upload_item() {
     wrapper = document.querySelector(".catalogue");
     const form_date = document.getElementById("file-upload-date")
     const form_type = document.getElementById("file-upload-type");
-    const preview_item = document.getElementById("preview");
     const button = document.getElementById("add-item-button");
     if (!form_date.value || !form_price.value || !form_name.value || !form_image.value || !form_type.value) {
         button.textContent = "Не удалось загрузить товар, отсутствуют обязательные атрибуты.";
@@ -60,18 +59,20 @@ async function upload_item() {
         const data = await res.json();
         window.open("http://localhost:3000/HTML_Pages/Item_Pages/" + form_name.value + ".html");
         console.log(data);
-        await fetch("/upload_item", {
+        const res1 = await fetch("/upload_item", {
             method: "POST",
+            headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
-                id: 67,
                 name: form_name.value,
                 price: form_price.value,
                 date: form_date.value,
                 description: form_description.value,
                 type: form_type.value,
-                image_path: "http://localhost:3000/contents/" + form_name.value + ".png",
-                page_link: "http://localhost:3000/HTML_Pages/Item_Pages/" + form_name.value + ".html"
+                image_path: "../contents/" + form_name.value + ".png",
+                page_link: "Item_Pages/" + form_name.value + ".html"
             })
         })
+        window.location.reload();
+        console.log(res1);
     }
 }

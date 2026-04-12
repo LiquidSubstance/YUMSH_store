@@ -33,7 +33,7 @@ app.post("/create_page", (req, res) => {
             })
         })
     })
-})
+});
 app.post("/upload_item_image", upload.single("file"), (req, res) => {
     const {name} = req.body;
     const src = req.file.path;
@@ -45,9 +45,10 @@ app.post("/upload_item_image", upload.single("file"), (req, res) => {
         }
         res.json({ok: true});
     })
-})
+});
 const sqlite3 = require('sqlite3').verbose();
-const catalogue_db = new sqlite3.Database("../Data/catalogue_db.db");
+const catalogue_db = new sqlite3.Database(path.join(__dirname, "../Data/catalogue_db.db"));
+console.log("path:", path.resolve(__dirname, "../Data/catalogue_db.db"));
 catalogue_db.run(`
     CREATE TABLE IF NOT EXISTS items (
         id          INTEGER PRIMARY KEY,
@@ -62,14 +63,20 @@ catalogue_db.run(`
 `);
 
 app.post("/upload_item", (req, res) => {
-    const { name, price, date, description, type, image_path, page_link} = req.body;
-
+    const {name, price, date, description, type, image_path, page_link} = req.body;
+    console.log("uploaded to db")
     const sql = `
         INSERT INTO items (name, price, date, description, type, image_path, page_link)
-        VALUES (?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
     `;
-
     catalogue_db.run(sql, [name, price, date, description, type, image_path, page_link], function (err) {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: err.message });
+        }
+        catalogue_db.all("SELECT * FROM items", (err, rows) => {
+            console.log(rows);
+        });
         res.json({
             id: this.lastID,
             name,
@@ -81,12 +88,14 @@ app.post("/upload_item", (req, res) => {
             page_link,
         });
     });
-})
+});
 
-app.get("/upload_item", (req, res) => {
-    db.all("SELECT * FROM items ORDER BY id DESC", [], (err, rows) => {
+app.get("/get_items", (req, res) => {
+    console.log("got")
+    let all_items = Array();
+    catalogue_db.all("SELECT * FROM items", (err, rows) => {
         res.json(rows);
     })
-})
+});
 
 app.listen(3000);

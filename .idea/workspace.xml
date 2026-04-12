@@ -5,13 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2172dd3-556d-428b-a9bf-66bad44db99d" name="Changes" comment="all">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/scripts/display_catalogue.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/create_new_item page.js" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/create_new_item page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/upload_item.js" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/upload_item.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/create_new_item page.js" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/upload_item.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/catalogue_db.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/HTML_pages/Catalogue.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/HTML_pages/Catalogue.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/HTML_pages/Item_Pages/Зачетная Кружка 2025.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/HTML_pages/Item_Pages/Значок 2025.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/HTML_pages/Item_Pages/Значок 2025.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/HTML_pages/Item_Pages/Кепка 2024.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/HTML_pages/Item_Pages/Кепка 2024.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/HTML_pages/Item_Pages/Обложка для паспорта 2024.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/HTML_pages/Item_Pages/Обложка для паспорта 2024.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/contents/Зачетная Кружка 2025.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/scripts/filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front/scripts/filter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front/scripts/upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front/scripts/upload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front/styles/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/styles/catalogue.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front/styles/catalogue.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,50 +44,52 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="35CUG5RWw056ERuyXqCSwZCBiqo" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JavaScript Debug.404page.html (1).executor": "Run",
-    "JavaScript Debug.404page.html.executor": "Debug",
-    "JavaScript Debug.Catalogue.html (1).executor": "Run",
-    "JavaScript Debug.Catalogue.html.executor": "Run",
-    "JavaScript Debug.index.html.executor": "Run",
-    "JavaScript Debug.main.html.executor": "Run",
-    "JavaScript Debug.main_page.html (1).executor": "Run",
-    "JavaScript Debug.main_page.html.executor": "Run",
-    "JavaScript Debug.template.html.executor": "Run",
-    "Node.js.Unnamed.executor": "Run",
-    "Node.js.create_new_item page.js.executor": "Run",
-    "Node.js.cycle.js.executor": "Run",
-    "Node.js.filter.js.executor": "Run",
-    "Node.js.index.js.executor": "Run",
-    "Node.js.server.executor": "Run",
-    "Node.js.sorting.js.executor": "Run",
-    "Node.js.upload.js.executor": "Run",
-    "Node.js.upload_item.js.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "javascript.nodejs.core.library.configured.version": "22.18.0",
-    "javascript.nodejs.core.library.typings.version": "22.18.13",
-    "javascript.preferred.runtime.type.id": "node",
-    "last_opened_file_path": "C:/Users/PC/AppData/Roaming/JetBrains/DataGrip2026.1/consoles/db/61af28da-60bc-495d-860c-5129c7636aa8/console.sql",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "E:/Nodejs/node",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.nodejs",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.3.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JavaScript Debug.404page.html (1).executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.404page.html.executor&quot;: &quot;Debug&quot;,
+    &quot;JavaScript Debug.Catalogue.html (1).executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.Catalogue.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.main.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.main_page.html (1).executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.main_page.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.template.html.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.create_new_item page.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.cycle.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.filter.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.index.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.server.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.server.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.sorting.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.upload.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.upload_item.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;22.18.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;22.18.13&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/AppData/Roaming/JetBrains/DataGrip2026.1/consoles/db/61af28da-60bc-495d-860c-5129c7636aa8/console.sql&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;E:/Nodejs/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2024.3.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\PC\WebstormProjects\yumsh_shop\contents" />
@@ -95,14 +105,11 @@
       <recent name="C:\Users\PC\WebstormProjects\yumsh_shop\contents" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.create_new_item page.js">
+  <component name="RunManager" selected="Node.js.server.js">
     <configuration name="Catalogue.html" type="JavascriptDebugType" nameIsGenerated="true" uri="http://localhost:63342/yumsh_shop/Frontend/HTML_pages/Catalogue.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="template.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/yumsh_shop/Frontend/HTML_pages/Item_Pages/template.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="create_new_item page.js" type="NodeJSConfigurationType" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Backend/create_new_item page.js" working-dir="$PROJECT_DIR$/Backend">
       <method v="2" />
     </configuration>
     <configuration name="cycle.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Frontend/scripts/cycle.js" working-dir="$PROJECT_DIR$/Frontend/scripts">
@@ -116,13 +123,16 @@
         <option name="RunConfigurationTask" enabled="true" run_configuration_name="create_new_item page.js" run_configuration_type="NodeJSConfigurationType" />
       </method>
     </configuration>
+    <configuration name="server.js" type="NodeJSConfigurationType" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Backend/server.js" working-dir="$PROJECT_DIR$/Backend">
+      <method v="2" />
+    </configuration>
     <configuration name="upload_item.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Backend/upload_item.js" working-dir="$PROJECT_DIR$/Backend">
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="JavaScript Debug.Catalogue.html" />
       <item itemvalue="JavaScript Debug.template.html" />
-      <item itemvalue="Node.js.create_new_item page.js" />
+      <item itemvalue="Node.js.server.js" />
       <item itemvalue="Node.js.upload_item.js" />
       <item itemvalue="Node.js.server" />
       <item itemvalue="Node.js.cycle.js" />
@@ -234,6 +244,7 @@
       <workItem from="1775594122982" duration="619000" />
       <workItem from="1775772424757" duration="186000" />
       <workItem from="1775849440007" duration="6417000" />
+      <workItem from="1776002454190" duration="5884000" />
     </task>
     <task id="LOCAL-00001" summary="all">
       <option name="closed" value="true" />
