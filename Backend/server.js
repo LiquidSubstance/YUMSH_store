@@ -92,7 +92,6 @@ app.post("/upload_item", (req, res) => {
 
 app.get("/get_items", (req, res) => {
     console.log("got")
-    let all_items = Array();
     catalogue_db.all("SELECT * FROM items", (err, rows) => {
         res.json(rows);
     })

@@ -1,23 +1,28 @@
 const select = document.querySelector(".sort-form");
 let wrapper = document.querySelector(".catalogue");
-select.addEventListener("change", () => {
-    const items = Array.from(wrapper.querySelectorAll(".catalogue-item"));
+select.addEventListener("change", async () => {
+    const items_res = await fetch("/get_items", {
+        method: "GET",
+        headers: {"Content-Type": "application/json"},
+    })
+    let items = Array.from(await items_res.json())
     const option = select.value;
     items.sort((a, b) => {
         switch (option) {
             case "price-asc":
-                return Number(a.dataset.price) - Number(b.dataset.price);
+                return Number(a.price) - Number(b.price);
             case "price-desc":
-                return Number(b.dataset.price) - Number(a.dataset.price);
+                return Number(b.price) - Number(a.price);
             case "date-asc":
-                return Number(a.dataset.date) - Number(b.dataset.date);
+                return Number(a.date) - Number(b.date);
             case "date-desc":
-                return Number(b.dataset.date) - Number(a.dataset.date);
+                return Number(b.date) - Number(a.date);
             case "type":
-                return a.dataset.type.localeCompare(b.dataset.type);
+                return a.type.localeCompare(b.type);
         }
     })
+    wrapper.innerHTML = "";
     items.forEach(item => {
-        wrapper.appendChild(item);
+        wrapper.appendChild(create_element(item));
     })
 });

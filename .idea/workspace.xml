@@ -5,21 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2172dd3-556d-428b-a9bf-66bad44db99d" name="Changes" comment="all">
-      <change afterPath="$PROJECT_DIR$/Front/scripts/display_catalogue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/create_new_item page.js" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/upload_item.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/catalogue_db.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/HTML_pages/Catalogue.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/HTML_pages/Catalogue.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/HTML_pages/Item_Pages/Зачетная Кружка 2025.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/HTML_pages/Item_Pages/Значок 2025.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/HTML_pages/Item_Pages/Значок 2025.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/HTML_pages/Item_Pages/Кепка 2024.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/HTML_pages/Item_Pages/Кепка 2024.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/HTML_pages/Item_Pages/Обложка для паспорта 2024.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/HTML_pages/Item_Pages/Обложка для паспорта 2024.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/contents/Зачетная Кружка 2025.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/scripts/display_catalogue.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front/scripts/display_catalogue.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front/scripts/filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front/scripts/filter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/scripts/upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front/scripts/upload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/styles/catalogue.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front/styles/catalogue.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/scripts/sort.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front/scripts/sort.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,7 +234,8 @@
       <workItem from="1775594122982" duration="619000" />
       <workItem from="1775772424757" duration="186000" />
       <workItem from="1775849440007" duration="6417000" />
-      <workItem from="1776002454190" duration="5884000" />
+      <workItem from="1776002454190" duration="6285000" />
+      <workItem from="1776098564918" duration="2144000" />
     </task>
     <task id="LOCAL-00001" summary="all">
       <option name="closed" value="true" />

@@ -1,13 +1,4 @@
 wrapper = document.querySelector(".catalogue");
-const raw_items = Array.from(wrapper.querySelectorAll(".catalogue-item"));
-class CatalogueItem {
-    constructor(name, price, type, date) {
-        this.name = name;
-        this.price = price;
-        this.date = date;
-        this.type = type;
-    }
-}
 class Filter {
     constructor(content, property) {
         this.content = content;
@@ -37,7 +28,12 @@ class Filter {
     }
 }
 
-function uniteFilters(filters, items, wrapper, raw_items) {
+async function uniteFilters(filters, wrapper) {
+    const items_res = await fetch("/get_items", {
+        method: "GET",
+        headers: {"Content-Type": "application/json"},
+    })
+    let items = Array.from(await items_res.json())
     let all_items = new Set(items);
     filters.sort((a, b) => {
         return a.property.localeCompare(b.property);
@@ -64,34 +60,16 @@ function uniteFilters(filters, items, wrapper, raw_items) {
     let i = 0;
     wrapper.innerHTML = "";
     console.log(all_items);
-    raw_items.forEach(item => {
-        if (all_items.has(items[i])) {
-            wrapper.appendChild(item);
-        }
-        i++;
+    all_items.forEach((item) => {
+        wrapper.appendChild(create_element(item));
     })
 }
 let raw_filters = Array.from(document.querySelectorAll(".filter-item"));
-let items = []
-async function get_items_list() {
-    const items_res = await fetch("/get_items", {
-        method: "GET",
-        headers: {"Content-Type": "application/json"},
-    })
-    console.log(items_res);
-    let all_catalogue_items = Array.from(await items_res.json());
-    all_catalogue_items.forEach(item => {
-        let new_item = new CatalogueItem(item.name, item.price, item.type, item.date);
-        items.push(new_item);
-    })
-}
-get_items_list();
 let filters = []
 raw_filters.forEach(item => {
     let current_filter = new Filter(item.dataset.content, item.dataset.property);
     filters.push(current_filter);
 })
-console.log(filters);
 let i = 0;
 let all_filters = new Array();
 raw_filters.forEach(current_filter => {
@@ -105,7 +83,7 @@ raw_filters.forEach(current_filter => {
             all_filters = all_filters.filter(item => item !== current_filter_document);
             console.log(current_filter_document, "deleted");
         }
-        uniteFilters(all_filters, items, wrapper, raw_items);
+        uniteFilters(all_filters, wrapper);
         console.log(all_filters);
     });
     i++;
@@ -126,5 +104,5 @@ price_filter_wrapper.addEventListener("change", () => {
         price_filter.content[1] = -1;
     }
     all_filters.push(price_filter);
-    uniteFilters(all_filters, items, wrapper, raw_items);
+    uniteFilters(all_filters, wrapper);
 })
