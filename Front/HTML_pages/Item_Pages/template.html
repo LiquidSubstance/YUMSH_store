@@ -22,7 +22,7 @@
     </ul>
     <hr>
 </header>
-<body>
+<body id = "{{ID}}" class = "body">
     <div class="item-page">
         <div class="image-wrapper">
             <img src = "../../contents/Placeholder.png" alt="placeholder" class = "main-image">
@@ -35,8 +35,13 @@
         </div>
     </div>
     <hr>
+    <div class="item-editor">
+        <button class = "delete-item-button" onclick="delete_item()">Удалить товар</button>
+        <hr>
+    </div>
     <footer>
         <h3> Юношеская Математическая Школа, 2025</h3>
     </footer>
+    <script src="../../scripts/edit_item.js"></script>
 </body>
 </html>

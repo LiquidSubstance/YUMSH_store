@@ -39,15 +39,6 @@ async function upload_item() {
             button.style.color = "black";
         }, 1000)
     } else {
-        const res = await fetch("/create_page", {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({
-                name: form_name.value,
-                price: form_price.value,
-                description: form_description.value,
-            })
-        });
         const formdata = new FormData();
         const new_file = new File([form_image.files[0]], form_name.value, {type: form_image.files[0].type});
         formdata.append('file', new_file);
@@ -56,9 +47,6 @@ async function upload_item() {
             method: "POST",
             body: formdata
         })
-        const data = await res.json();
-        window.open("http://localhost:3000/HTML_Pages/Item_Pages/" + form_name.value + ".html");
-        console.log(data);
         const res1 = await fetch("/upload_item", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -72,7 +60,18 @@ async function upload_item() {
                 page_link: "Item_Pages/" + form_name.value + ".html"
             })
         })
+        const id = await res1.json();
+        const res = await fetch("/create_page", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                name: form_name.value,
+                price: form_price.value,
+                description: form_description.value,
+                id: id
+            })
+        });
         window.location.reload();
-        console.log(res1);
+        console.log(res1)
     }
 }

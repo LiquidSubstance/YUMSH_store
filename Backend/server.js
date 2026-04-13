@@ -11,7 +11,7 @@ app.use(cors());
 const upload = multer({ dest: '../Front/contents/' });
 
 app.post("/create_page", (req, res) => {
-    const {name, price, description} = req.body;
+    const {name, price, description, id} = req.body;
     const src = path.join(__dirname, "../Front/HTML_pages/Item_pages/template.html");
     const dst = path.join(__dirname, "../Front/HTML_pages/Item_pages/" + name + ".html");
     fs.readFile(src, "utf-8", (err, data) => {
@@ -19,6 +19,7 @@ app.post("/create_page", (req, res) => {
             console.error(err);
         }
         let updated = data
+            .replace("{{ID}}", id)
             .replace("{{NAME}}", name)
             .replace("{{PRICE}}", price + "₽")
             .replace("{{DESCRIPTION}}", description)
@@ -78,14 +79,7 @@ app.post("/upload_item", (req, res) => {
             console.log(rows);
         });
         res.json({
-            id: this.lastID,
-            name,
-            price,
-            date,
-            description,
-            type,
-            image_path,
-            page_link,
+            id: this.lastID
         });
     });
 });
@@ -96,5 +90,10 @@ app.get("/get_items", (req, res) => {
         res.json(rows);
     })
 });
+
+app.post("/delete_item", (req, res) => {
+    const id = req.body;
+    catalogue_db.run(`DELETE FROM items WHERE id = ?`, [id]);
+})
 
 app.listen(3000);

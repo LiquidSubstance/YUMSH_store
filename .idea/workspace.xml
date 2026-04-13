@@ -5,11 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2172dd3-556d-428b-a9bf-66bad44db99d" name="Changes" comment="all">
+      <change afterPath="$PROJECT_DIR$/Front/scripts/edit_item.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/scripts/display_catalogue.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front/scripts/display_catalogue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/scripts/filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front/scripts/filter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/scripts/sort.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front/scripts/sort.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/catalogue_db.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/HTML_pages/Item_Pages/template.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/HTML_pages/Item_Pages/template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/HTML_pages/Item_Pages/Браслет 2024.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/HTML_pages/Item_Pages/Зачетная кружка 2025.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/HTML_pages/Item_Pages/Значок 2025.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/HTML_pages/Item_Pages/Кепка 2024.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/HTML_pages/Item_Pages/Кружка 2024 дизайн 2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/HTML_pages/Item_Pages/Обложка для паспорта 2024.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/HTML_pages/Item_Pages/Ручка 2024.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/HTML_pages/Item_Pages/Футболка 2024.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/contents/Браслет 2024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/contents/Зачетная кружка 2025.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/contents/Значок 2025.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/contents/Кепка 2024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/contents/Кружка 2024 дизайн 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/contents/Обложка для паспорта 2024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/contents/Ручка 2024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/contents/Футболка 2024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/scripts/upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front/scripts/upload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/styles/404page.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front/styles/404page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/styles/catalogue.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front/styles/catalogue.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/styles/itempage.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front/styles/itempage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front/styles/main.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,47 +60,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;JavaScript Debug.404page.html (1).executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.404page.html.executor&quot;: &quot;Debug&quot;,
-    &quot;JavaScript Debug.Catalogue.html (1).executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.Catalogue.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.main.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.main_page.html (1).executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.main_page.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.template.html.executor&quot;: &quot;Run&quot;,
-    &quot;Node.js.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;Node.js.create_new_item page.js.executor&quot;: &quot;Run&quot;,
-    &quot;Node.js.cycle.js.executor&quot;: &quot;Run&quot;,
-    &quot;Node.js.filter.js.executor&quot;: &quot;Run&quot;,
-    &quot;Node.js.index.js.executor&quot;: &quot;Run&quot;,
-    &quot;Node.js.server.executor&quot;: &quot;Run&quot;,
-    &quot;Node.js.server.js.executor&quot;: &quot;Run&quot;,
-    &quot;Node.js.sorting.js.executor&quot;: &quot;Run&quot;,
-    &quot;Node.js.upload.js.executor&quot;: &quot;Run&quot;,
-    &quot;Node.js.upload_item.js.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;22.18.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;22.18.13&quot;,
-    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/AppData/Roaming/JetBrains/DataGrip2026.1/consoles/db/61af28da-60bc-495d-860c-5129c7636aa8/console.sql&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;E:/Nodejs/node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2024.3.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.404page.html (1).executor": "Run",
+    "JavaScript Debug.404page.html.executor": "Debug",
+    "JavaScript Debug.Catalogue.html (1).executor": "Run",
+    "JavaScript Debug.Catalogue.html.executor": "Run",
+    "JavaScript Debug.index.html.executor": "Run",
+    "JavaScript Debug.main.html.executor": "Run",
+    "JavaScript Debug.main_page.html (1).executor": "Run",
+    "JavaScript Debug.main_page.html.executor": "Run",
+    "JavaScript Debug.template.html (1).executor": "Run",
+    "JavaScript Debug.template.html.executor": "Run",
+    "Node.js.Unnamed.executor": "Run",
+    "Node.js.create_new_item page.js.executor": "Run",
+    "Node.js.cycle.js.executor": "Run",
+    "Node.js.filter.js.executor": "Run",
+    "Node.js.index.js.executor": "Run",
+    "Node.js.server.executor": "Run",
+    "Node.js.server.js.executor": "Run",
+    "Node.js.sorting.js.executor": "Run",
+    "Node.js.upload.js.executor": "Run",
+    "Node.js.upload_item.js.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "javascript.nodejs.core.library.configured.version": "22.18.0",
+    "javascript.nodejs.core.library.typings.version": "22.18.13",
+    "javascript.preferred.runtime.type.id": "node",
+    "last_opened_file_path": "C:/Users/PC/AppData/Roaming/JetBrains/DataGrip2026.1/consoles/db/61af28da-60bc-495d-860c-5129c7636aa8/console.sql",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "E:/Nodejs/node",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.3.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\PC\WebstormProjects\yumsh_shop\contents" />
@@ -99,10 +121,10 @@
     <configuration name="Catalogue.html" type="JavascriptDebugType" nameIsGenerated="true" uri="http://localhost:63342/yumsh_shop/Frontend/HTML_pages/Catalogue.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="template.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/yumsh_shop/Frontend/HTML_pages/Item_Pages/template.html" useBuiltInWebServerPort="true">
+    <configuration name="template.html (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/yumsh_shop/Front/HTML_pages/Item_Pages/template.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="cycle.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Frontend/scripts/cycle.js" working-dir="$PROJECT_DIR$/Frontend/scripts">
+    <configuration name="template.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/yumsh_shop/Frontend/HTML_pages/Item_Pages/template.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="filter.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Frontend/scripts/filter.js" working-dir="$PROJECT_DIR$/Frontend/scripts">
@@ -121,20 +143,20 @@
     </configuration>
     <list>
       <item itemvalue="JavaScript Debug.Catalogue.html" />
+      <item itemvalue="JavaScript Debug.template.html (1)" />
       <item itemvalue="JavaScript Debug.template.html" />
       <item itemvalue="Node.js.server.js" />
       <item itemvalue="Node.js.upload_item.js" />
       <item itemvalue="Node.js.server" />
-      <item itemvalue="Node.js.cycle.js" />
       <item itemvalue="Node.js.filter.js" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.template.html (1)" />
         <item itemvalue="Node.js.upload_item.js" />
         <item itemvalue="Node.js.server" />
         <item itemvalue="JavaScript Debug.template.html" />
         <item itemvalue="Node.js.filter.js" />
-        <item itemvalue="Node.js.cycle.js" />
       </list>
     </recent_temporary>
   </component>
@@ -235,7 +257,7 @@
       <workItem from="1775772424757" duration="186000" />
       <workItem from="1775849440007" duration="6417000" />
       <workItem from="1776002454190" duration="6285000" />
-      <workItem from="1776098564918" duration="2144000" />
+      <workItem from="1776098564918" duration="5087000" />
     </task>
     <task id="LOCAL-00001" summary="all">
       <option name="closed" value="true" />
