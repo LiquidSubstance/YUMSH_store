@@ -1,8 +1,12 @@
 async function delete_item() {
     let id = document.querySelector(".body").id;
-    await fetch(`/delete_item`, {
-        method: "POST",
-        body: id
+    console.log(id);
+    await fetch("/delete_item", {
+        method: "DELETE",
+        body: JSON.stringify({
+            id: Number(id),
+        })
     })
+    console.log("deleted")
     window.close();
 }

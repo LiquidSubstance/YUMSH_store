@@ -60,7 +60,7 @@ async function upload_item() {
                 page_link: "Item_Pages/" + form_name.value + ".html"
             })
         })
-        const id = await res1.json();
+        const item_id = (await res1.json()).id;
         const res = await fetch("/create_page", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -68,10 +68,10 @@ async function upload_item() {
                 name: form_name.value,
                 price: form_price.value,
                 description: form_description.value,
-                id: id
+                id: item_id
             })
         });
-        window.location.reload();
-        console.log(res1)
+        // window.location.reload();
+        console.log(item_id)
     }
 }

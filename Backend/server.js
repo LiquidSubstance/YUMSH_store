@@ -91,9 +91,29 @@ app.get("/get_items", (req, res) => {
     })
 });
 
-app.post("/delete_item", (req, res) => {
-    const id = req.body;
-    catalogue_db.run(`DELETE FROM items WHERE id = ?`, [id]);
+app.delete("/delete_item", (req, res) => {
+    const {id} = req.body;
+    console.log("deleted", id)
+    catalogue_db.run(`SELECT FROM items WHERE id = ?`, [id], (err, rows) => {
+        fs.rm("../Front/contents" + rows.name + ".png", (err) => {
+            if (err) {
+                console.error(err);
+            }
+        })
+        fs.rm("../Front/HTML_pages/Item_pages" + rows.name + ".html", (err) => {
+            if (err) {
+                console.error(err);
+            }
+        })
+    });
+    catalogue_db.run(`DELETE FROM items WHERE id = ?`, [id], (err, rows) => {
+        if (err) {
+            console.error(err);
+        }
+    });
+    catalogue_db.all("SELECT * FROM items", (err, rows) => {
+        console.log(rows);
+    });
 })
 
 app.listen(3000);
