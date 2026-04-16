@@ -94,13 +94,17 @@ app.get("/get_items", (req, res) => {
 app.delete("/delete_item", (req, res) => {
     const {id} = req.body;
     console.log("deleted", id)
-    catalogue_db.run(`SELECT FROM items WHERE id = ?`, [id], (err, rows) => {
-        fs.rm("../Front/contents" + rows.name + ".png", (err) => {
+    catalogue_db.get(`SELECT * FROM items WHERE id = ?`, [id], (err, row) => {
+        if (!row) {
+            console.log(err);
+            return res.status(500).json({error: err.message});
+        }
+        fs.rm("../Front/contents/" + row.name + ".png", (err) => {
             if (err) {
                 console.error(err);
             }
         })
-        fs.rm("../Front/HTML_pages/Item_pages" + rows.name + ".html", (err) => {
+        fs.rm("../Front/HTML_pages/Item_pages/" + row.name + ".html", (err) => {
             if (err) {
                 console.error(err);
             }
