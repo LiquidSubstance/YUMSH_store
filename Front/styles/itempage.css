@@ -96,6 +96,7 @@ h3 {
     transition: background-color ease 1s, color ease 1s;
 }
 .delete-item-button:hover {
+    cursor: pointer;
     background-color: rgba(255,51,47,0.85);
     color: white;
 }

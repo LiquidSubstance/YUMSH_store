@@ -184,6 +184,7 @@ app.post("/add_filter", (req, res) => {
 app.delete("/delete_filter", (req, res) => {
     const {id} = req.body;
     database.run(`DELETE FROM filters WHERE id = ?`, [id], (err, rows) => {
+        console.log(id)
         if (err) {
             console.error(err);
             return res.status(500).json({ error: err.message });
