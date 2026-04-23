@@ -4,7 +4,7 @@ function create_element(item) {
     element.className = "catalogue-item";
     element.id = item.id;
     element.innerHTML = `
-            <a href = "` + item.page_link + `">
+            <a href = "template.html?id=` + item.id + `">
                 <img src="` + item.image_path + `" width="192" height="225" alt = "` + item.name + `">
                 <h2>`+ item.name +`</h2>
                 <p> `+ item.price +`₽ </p>

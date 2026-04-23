@@ -9,32 +9,6 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "../Front")));
 app.use(cors());
 const upload = multer({ dest: '../Front/contents/' });
-
-app.post("/create_page", (req, res) => {
-    const {name, price, description, id} = req.body;
-    const src = path.join(__dirname, "../Front/HTML_pages/Item_pages/template.html");
-    const dst = path.join(__dirname, "../Front/HTML_pages/Item_pages/" + name + ".html");
-    fs.readFile(src, "utf-8", (err, data) => {
-        if (err) {
-            console.error(err);
-        }
-        let updated = data
-            .replace("{{ID}}", id)
-            .replace("{{NAME}}", name)
-            .replace("{{PRICE}}", price + "₽")
-            .replace("{{DESCRIPTION}}", description)
-            .replace("../../contents/Placeholder.png", "../../contents/" + name + ".png");
-        fs.writeFile(dst, updated, err => {
-            if (err) {
-                console.error(err);
-            }
-            res.json({
-                ok: true,
-                new_path: dst
-            })
-        })
-    })
-});
 app.post("/upload_item_image", upload.single("file"), (req, res) => {
     const {name} = req.body;
     const src = req.file.path;
@@ -48,9 +22,8 @@ app.post("/upload_item_image", upload.single("file"), (req, res) => {
     })
 });
 const sqlite3 = require('sqlite3').verbose();
-const catalogue_db = new sqlite3.Database(path.join(__dirname, "../Data/catalogue_db.db"));
-console.log("path:", path.resolve(__dirname, "../Data/catalogue_db.db"));
-catalogue_db.run(`
+const database = new sqlite3.Database(path.join(__dirname, "../Data/database.db"));
+database.run(`
     CREATE TABLE IF NOT EXISTS items (
         id          INTEGER PRIMARY KEY,
         name        TEXT,
@@ -58,24 +31,27 @@ catalogue_db.run(`
         date        TEXT,
         description TEXT,
         type        TEXT,
-        image_path  TEXT,
-        page_link TEXT
+        image_path  TEXT
     )                   
 `);
 
 app.post("/upload_item", (req, res) => {
-    const {name, price, date, description, type, image_path, page_link} = req.body;
+    const {name, price, date, description, type, image_path} = req.body;
     console.log("uploaded to db")
     const sql = `
-        INSERT INTO items (name, price, date, description, type, image_path, page_link)
-        VALUES (?, ?, ?, ?, ?, ?, ?)
+        INSERT INTO items (name, price, date, description, type, image_path)
+        VALUES (?, ?, ?, ?, ?, ?)
     `;
-    catalogue_db.run(sql, [name, price, date, description, type, image_path, page_link], function (err) {
+    database.run(sql, [name, price, date, description, type, image_path], function (err) {
         if (err) {
             console.error(err);
             return res.status(500).json({ error: err.message });
         }
-        catalogue_db.all("SELECT * FROM items", (err, rows) => {
+        database.all("SELECT * FROM items", (err, rows) => {
+            if (err) {
+                console.error(err);
+                return res.status(500).json({ error: err.message });
+            }
             console.log(rows);
         });
         res.json({
@@ -85,39 +61,153 @@ app.post("/upload_item", (req, res) => {
 });
 
 app.get("/get_items", (req, res) => {
-    console.log("got")
-    catalogue_db.all("SELECT * FROM items", (err, rows) => {
+    database.all("SELECT * FROM items", (err, rows) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: err.message });
+        }
         res.json(rows);
     })
+});
+
+app.get("/get_item", (req, res) => {
+   const {id} = req.query;
+    database.get("SELECT * FROM items WHERE id = ?", [id], (err, row) => {
+       if (err) {
+           console.error(err);
+           return res.status(500).json({ error: err.message });
+       }
+       res.json(row);
+   });
 });
 
 app.delete("/delete_item", (req, res) => {
     const {id} = req.body;
     console.log("deleted", id)
-    catalogue_db.get(`SELECT * FROM items WHERE id = ?`, [id], (err, row) => {
+    database.get(`SELECT * FROM items WHERE id = ?`, [id], (err, row) => {
         if (!row) {
             console.log(err);
-            return res.status(500).json({error: err.message});
+            return res.status(500).json({ error: err.message });
         }
-        fs.rm("../Front/contents/" + row.name + ".png", (err) => {
+        fs.rm("../Front/HTML_pages/" + row.image_path, (err) => {
             if (err) {
                 console.error(err);
-            }
-        })
-        fs.rm("../Front/HTML_pages/Item_pages/" + row.name + ".html", (err) => {
-            if (err) {
-                console.error(err);
+                return res.status(500).json({ error: err.message });
             }
         })
     });
-    catalogue_db.run(`DELETE FROM items WHERE id = ?`, [id], (err, rows) => {
+    database.run(`DELETE FROM items WHERE id = ?`, [id], (err, rows) => {
         if (err) {
             console.error(err);
+            return res.status(500).json({ error: err.message });
         }
     });
-    catalogue_db.all("SELECT * FROM items", (err, rows) => {
+    database.all("SELECT * FROM items", (err, rows) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: err.message });
+        }
         console.log(rows);
     });
 })
+app.post("/add_attribute", (req, res) => {
+    const {id, attribute, content} = req.body;
+    const sql = `
+        ALTER TABLE items
+        ADD COLUMN ${attribute} TEXT DEFAULT ''
+    `
+    database.run(sql, err => {
+        if (err) {
+            console.error(err);
+            res.json('Не удалось загрузить товар, такой аттрибут уже существует, попробуйте загрузить изменения через вкладку "Изменить Товар"')
+        }
+        database.run(`UPDATE items SET ${attribute} = ? WHERE id = ?`, [content, id], (err) => {
+            if (err) {
+                console.error(err);
+                return res.status(500).json({ error: err.message });
+            }
+        });
+    });
+})
+app.post("/update_attribute", (req, res) => {
+    const {id, attribute, new_content} = req.body;
+    database.get(`UPDATE items SET ${attribute} = ? WHERE id = ?`, [new_content, id], (err) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: err.message });
+        }
+    });
+})
+app.delete("/delete_attribute", (req, res) => {
+    const {id, attribute} = req.body;
+    database.run(`UPDATE items SET ${attribute} = ? WHERE id = ?`, ["", id], (err) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: err.message });
+        }
+    });
+})
+database.run(`
+    CREATE TABLE IF NOT EXISTS filters (
+        id          INTEGER PRIMARY KEY,
+        attribute        TEXT,
+        name       TEXT,
+        content        TEXT
+    )                   
+`);
+app.post("/add_filter", (req, res) => {
+    const {attribute, name, content} = req.body;
+    const sql = `
+        INSERT INTO filters (attribute, name, content) 
+        VALUES (?, ?, ?)
+    `;
+    console.log(req.body);
+    console.log(database);
+    database.run(sql, [attribute, name, content],  function (err) {
+        console.log(database);
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: err.message });
+        }
+        res.json({
+            id: this.lastID
+        });
+    });
+    database.all("SELECT * FROM filters", (err, rows) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: err.message });
+        }
+        console.log(rows);
+    });
+});
+app.delete("/delete_filter", (req, res) => {
+    const {id} = req.body;
+    database.run(`DELETE FROM filters WHERE id = ?`, [id], (err, rows) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: err.message });
+        }
+    });
+});
+app.get("/get_filters", (req, res) => {
+    database.all("SELECT * FROM filters", (err, rows) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: err.message });
+        }
+        res.json(rows);
+    })
+});
+app.get("/get_filter", (req, res) => {
+    const {id} = req.query;
+    database.get("SELECT * FROM filters WHERE id = ?",[id], (err, row) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: err.message });
+        }
+        res.json(row);
+    })
+});
 
 app.listen(3000);

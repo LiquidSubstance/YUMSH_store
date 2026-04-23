@@ -47,7 +47,7 @@ async function upload_item() {
             method: "POST",
             body: formdata
         })
-        const res1 = await fetch("/upload_item", {
+        await fetch("/upload_item", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
@@ -57,21 +57,7 @@ async function upload_item() {
                 description: form_description.value,
                 type: form_type.value,
                 image_path: "../contents/" + form_name.value + ".png",
-                page_link: "Item_Pages/" + form_name.value + ".html"
             })
         })
-        const item_id = (await res1.json()).id;
-        const res = await fetch("/create_page", {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({
-                name: form_name.value,
-                price: form_price.value,
-                description: form_description.value,
-                id: item_id
-            })
-        });
-        // window.location.reload();
-        console.log(item_id)
     }
 }

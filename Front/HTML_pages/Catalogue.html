@@ -11,16 +11,14 @@
 </head>
 <body>
 <header class='header'>
-    <img src="../contents/logo.jpg" alt="logo" width="100" height="86.9" class="logo">
-    <h1>Юношеская Математическая Школа</h1>
-    <ul class='nav'>
-        <li class = 'nav-item'>
-            <a href="main_page.html"><button>Главная Страница</button></a>
-        </li>
-        <li class = 'nav-item'>
-            <a href="Catalogue.html"><button>Каталог</button></a>
-        </li>
-    </ul>
+    <div class='header-wrapper'>
+        <img src="../contents/logo.jpg" alt="logo" width="100" height="86.9" class="logo">
+        <div class = "link-wrapper">
+            <a href="main_page.html" class="nav-item">Главная Страница</a>
+            <a href="Catalogue.html" class="nav-item">Каталог</a>
+        </div>
+    </div>
+    <button class="hide-header-button" onclick="hide_header()"> ^ </button>
     <hr>
 </header>
 <main>
@@ -31,15 +29,19 @@
                 <button class = "close-button" onclick="close()">x</button>
                 <h2>Добавить новый фильтр</h2>
                 <p>
-                    Выберите признак сравнения
-                    <input type = "text" aria-label="Выберите признак сравнения" id="comparison" class = "constructor-input">
+                    Выберите имя фильтра
+                    <input type = "text" aria-label="Выберите имя фильтра" id="select-name" class = "constructor-input">
                 </p>
                 <p>
-                    Выберите имя признака сравнения
-                    <input type = "text" aria-label="Выберите имя признака сравнения" id="select-name" class = "constructor-input">
+                    Выберите признак сравнения
+                    <input type = "text" aria-label="Выберите признак сравнения" id="select-attribute" class = "constructor-input">
                 </p>
-                <div class = "filter-item-wrapper">
-                    <input class = "preview-filter-item" type = "checkbox" data-property = "" data-content = "" data-type = "" data-compareby = "" id = "preview-filter-item">
+                <p>
+                    Выберите содержимое признака сравнения
+                    <input type = "text" aria-label="Выберите содержимое признака сравнения" id="select-content" class = "constructor-input">
+                </p>
+                <div class = "preview-filter-item-wrapper">
+                    <input class = "preview-filter-item" type = "checkbox" id = "preview-filter-item">
                     <label id = "preview-filter-item-label" for = "preview-filter-item"></label>
                 </div>
                 <button class = "upload-button" onclick="upload_filter()">Загрузить</button>
@@ -50,18 +52,6 @@
             <p> Фильтры </p>
             <div class="filter-items">
                 <div class="not-price">
-                    <div class = "filter-item-wrapper">
-                        <input class = "filter-item" type = "checkbox" id = "by-type-cup" data-property = "type" data-content = "Кружка">
-                        <label for = "by-type-cup"> Кружка </label>
-                    </div>
-                    <div class = "filter-item-wrapper">
-                        <input class = "filter-item" type = "checkbox" id = "by-type-shirt" data-property = "type" data-content = "Футболка">
-                        <label  for = "by-type-shirt"> Футболка </label>
-                    </div>
-                    <div class = "filter-item-wrapper">
-                        <input class = "filter-item" type = "checkbox" id = "by-type-cap" data-property = "type" data-content = "Кепка">
-                        <label for = "by-type-cap"> Кепка </label>
-                    </div>
                 </div>
                 <div class="price">
                     <p>По цене:</p>
@@ -91,27 +81,30 @@
     <hr>
     <div class = "add-item-wrapper">
         <div class = "add-item">
-            <p class = "add-item-header"> Загрузить новый товар </p>
-            <p>
-                Загрузите изображение
-                <input type = "file" accept="image/*" id = "file-upload-image">
-            </p>
-            <p>
-                Введите название товара
-                <input type = "text" aria-label="Введите название товара" id = "file-upload-name">
-            </p>
-            <p>
-                Укажите цену
-                <input type = "text" aria-label="Укажите цену" id = "file-upload-price">
-            </p>
-            <p>
-                Установите дату
-                <input type = "text" aria-label="Укажите цену" id = "file-upload-date">
-            </p>
-            <p>
-                Укажите тип
-                <input type = "text" aria-label="Укажите цену" id = "file-upload-type">
-            </p>
+            <div class = "attributes-wrapper">
+                <p class = "add-item-header"> Загрузить новый товар </p>
+                <p>
+                    Загрузите изображение
+                    <input type = "file" accept="image/*" id = "file-upload-image">
+                </p>
+                <p>
+                    Введите название товара
+                    <input type = "text" aria-label="Введите название товара" id = "file-upload-name">
+                </p>
+                <p>
+                    Укажите цену
+                    <input type = "text" aria-label="Укажите цену" id = "file-upload-price">
+                </p>
+                <p>
+                    Установите дату
+                    <input type = "text" aria-label="Укажите цену" id = "file-upload-date">
+                </p>
+                <p>
+                    Укажите тип
+                    <input type = "text" aria-label="Укажите цену" id = "file-upload-type">
+                </p>
+            </div>
+            <hr>
             <button id = "add-item-button" onclick="upload_item()"> Загрузить </button>
         </div>
         <div class="preview-item" id = "preview" data-name = "" data-price = "" data-type = "" data-date = >
@@ -146,11 +139,13 @@
     <footer>
         <h3> Юношеская Математическая Школа, 2025</h3>
     </footer>
+    <script src="../scripts/display_filters.js"></script>
     <script src="../scripts/sort.js"></script>
     <script src="../scripts/upload.js"></script>
     <script src="../scripts/filter.js"></script>
     <script src="../scripts/filter_constructor.js"></script>
     <script src="../scripts/display_catalogue.js"></script>
+    <script src="../scripts/hide_header.js"></script>
 </main>
 </body>
 </html>
