@@ -1,11 +1,15 @@
 const select = document.querySelector(".sort-form");
 let wrapper = document.querySelector(".catalogue");
 select.addEventListener("change", async () => {
-    const items_res = await fetch("/get_items", {
-        method: "GET",
-        headers: {"Content-Type": "application/json"},
-    })
-    let items = Array.from(await items_res.json())
+    let current_items = Array.from(wrapper.querySelectorAll(".catalogue-item"));
+    let items = new Array();
+    for (const item of current_items) {
+        const item_res = await fetch("/get_item?id=" + item.id, {
+            method: "GET",
+            headers: {"content-type": "application/json"},
+        })
+        items.push(await item_res.json())
+    }
     const option = select.value;
     items.sort((a, b) => {
         switch (option) {
