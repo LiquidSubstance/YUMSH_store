@@ -19,8 +19,7 @@ async function load_filters() {
     filter_wrapper.innerHTML = "";
     let all_filter_items = Array.from(await filters_res.json());
     all_filter_items.sort((a, b) => a.attribute.localeCompare(b.attribute));
-    let i = 0;
-    for (i = 0; i < all_filter_items.length; i++) {
+    for (let i = 0; i < all_filter_items.length; i++) {
         let category = document.createElement("div");
         let category_name = document.createElement("p");
         category_name.textContent = all_filter_items[i].attribute;

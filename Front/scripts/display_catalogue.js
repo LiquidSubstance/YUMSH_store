@@ -5,7 +5,7 @@ function create_element(item) {
     element.id = item.id;
     element.innerHTML = `
             <a href = "template.html?id=` + item.id + `">
-                <img src="` + item.image_path + `" width="192" height="225" alt = "` + item.name + `">
+                <img src="` + item.image_path + `" width="192" height="256" alt = "` + item.name + `">
                 <h2>`+ item.name +`</h2>
                 <p> `+ item.price +`₽ </p>
             </a>

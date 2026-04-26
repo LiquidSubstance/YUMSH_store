@@ -37,7 +37,6 @@ database.run(`
 
 app.post("/upload_item", (req, res) => {
     const {name, price, date, description, type, image_path} = req.body;
-    console.log("uploaded to db")
     const sql = `
         INSERT INTO items (name, price, date, description, type, image_path)
         VALUES (?, ?, ?, ?, ?, ?)
@@ -47,16 +46,6 @@ app.post("/upload_item", (req, res) => {
             console.error(err);
             return res.status(500).json({ error: err.message });
         }
-        database.all("SELECT * FROM items", (err, rows) => {
-            if (err) {
-                console.error(err);
-                return res.status(500).json({ error: err.message });
-            }
-            console.log(rows);
-        });
-        res.json({
-            id: this.lastID
-        });
     });
 });
 
@@ -83,7 +72,6 @@ app.get("/get_item", (req, res) => {
 
 app.delete("/delete_item", (req, res) => {
     const {id} = req.body;
-    console.log("deleted", id)
     database.get(`SELECT * FROM items WHERE id = ?`, [id], (err, row) => {
         if (!row) {
             console.log(err);
@@ -101,13 +89,6 @@ app.delete("/delete_item", (req, res) => {
             console.error(err);
             return res.status(500).json({ error: err.message });
         }
-    });
-    database.all("SELECT * FROM items", (err, rows) => {
-        if (err) {
-            console.error(err);
-            return res.status(500).json({ error: err.message });
-        }
-        console.log(rows);
     });
 })
 app.post("/add_attribute", (req, res) => {

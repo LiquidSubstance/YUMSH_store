@@ -7,7 +7,7 @@ constructor_close_button.onclick = () => {
 constructor_open_button.onclick = () => {
     constructor_menu.style.display = "flex";
 };
-window.onclick = () => {
+window.onclick = (event) => {
     if (event.target === constructor_menu) {
         constructor_menu.style.display = "none";
     }

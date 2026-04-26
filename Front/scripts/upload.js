@@ -27,7 +27,6 @@ form_description.addEventListener("change", () => {
     preview_description.textContent = form_description.value;
 })
 async function upload_item() {
-    wrapper = document.querySelector(".catalogue");
     const form_date = document.getElementById("file-upload-date")
     const form_type = document.getElementById("file-upload-type");
     const button = document.getElementById("add-item-button");
@@ -46,7 +45,7 @@ async function upload_item() {
         await fetch("/upload_item_image", {
             method: "POST",
             body: formdata
-        })
+        });
         await fetch("/upload_item", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -58,6 +57,6 @@ async function upload_item() {
                 type: form_type.value,
                 image_path: "../contents/" + form_name.value + ".png",
             })
-        })
+        });
     }
 }

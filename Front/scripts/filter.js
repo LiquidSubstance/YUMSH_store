@@ -63,25 +63,14 @@ async function uniteFilters(filters, wrapper) {
 async function filter() {
     await load_filters();
     let raw_filters = Array.from(document.querySelectorAll(".filter-item-wrapper"))
-    let filters = []
-    for (const item of raw_filters) {
-        let filter_id = ""
-        let i = 0;
-        let it = Array.from(item.id);
-        it.forEach(c => {
-            if (c === "-") {
-                i++;
-            }
-            if (i === 2 && c !== "-") {
-                filter_id += c;
-            }
-        })
-        const res = await fetch("/get_filter?id=" + filter_id, {
-            method: "GET",
-            headers: {"Content-Type": "application/json"},
-        })
-        const db_item = await res.json();
-        let current_filter = new Filter(db_item.content, db_item.attribute);
+    const data = await fetch("/get_filters", {
+        method: "GET",
+        headers: {"Content-Type": "application/json"},
+    })
+    let filters = new Array();
+    let db_filters = await data.json();
+    for (const current_filter_db of db_filters) {
+        let current_filter = new Filter(current_filter_db.content, current_filter_db.attribute);
         filters.push(current_filter);
     }
     console.log(filters);
